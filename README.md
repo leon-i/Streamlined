@@ -34,33 +34,30 @@ Learning how to use the Entertainement Data Hub API to query its database and re
 ## Group Members and Work Breakdown
   
 **Group Members**
- * Isak Leon
- * Ivan Wang
- * Andrew Yoo
- * Joshua Park
+**Isak Leon, Ivan Wang, Andrew Yoo, Joshua Park**
   
 * **Day 1**
- * **Ivan/Andrew** - setting up backend skeleton for User and Show Models, basic user auth functionality
- * **Isak/Joshua** - React/Redux frontend skeleton for User Auth, styling for splash/user auth forms
+  * **Ivan/Andrew** - setting up backend skeleton for User and Show Models, basic user auth functionality
+  * **Isak/Joshua** - React/Redux frontend skeleton for User Auth, styling for splash/user auth forms
    
 * **Day 2**
- * **All** - continue finishing anything from Day 1 that wasn't competed
- * **Isak/Ivan** - configure database queries using EDH API, prepare to implement search
- * **Andrew/Joshua** - integrate User Auth between backend and frontend, begin user queue functionality
+  * **All** - continue finishing anything from Day 1 that wasn't competed
+  * **Isak/Ivan** - configure database queries using EDH API, prepare to implement search
+  * **Andrew/Joshua** - integrate User Auth between backend and frontend, begin user queue functionality
   
 * **Day 3**
- * **Isak/Andrew** - impliment user queue and search components in React/Redux, styling
- * **Ivan/Joshua** - set up reviews/ratings skeletons, requests in backend
- * **All** - meet to discuss progress, how to proceed on Day 4/5
+  * **Isak/Andrew** - impliment user queue and search components in React/Redux, styling
+  * **Ivan/Joshua** - set up reviews/ratings skeletons, requests in backend
+  * **All** - meet to discuss progress, how to proceed on Day 4/5
    
 * **Day 4**
- * Implement reviews/ratings in React/Redux
- * Style reviews, ratings, show pages
- * Start building requests for recommended shows in backend, skeleton in frontend
- * Clean up any bugs/styling
+  * Implement reviews/ratings in React/Redux
+  * Style reviews, ratings, show pages
+  * Start building requests for recommended shows in backend, skeleton in frontend
+  * Clean up any bugs/styling
   
 * **Day 5**
- * Finish recommended shows functionality
- * Style recommended shows component
- * Finish debugging/styling
+  * Finish recommended shows functionality
+  * Style recommended shows component
+  * Finish debugging/styling
 
