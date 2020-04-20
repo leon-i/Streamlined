@@ -7,7 +7,7 @@ const search = require("./routes/api/search");
 const User = require("./models/User");
 const bodyParser = require("body-parser");
 
-// const passport = require("passport");
+const passport = require("passport");
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -22,8 +22,8 @@ app.use("/api/users", users);
 
 app.use("/api/search", search);
 
-// app.use(passport.initialize());
-// require("./config/passport")(passport);
+app.use(passport.initialize());
+require("./config/passport")(passport);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

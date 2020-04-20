@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
             "headers":{
                 "content-type":"application/json",
                 "x-rapidapi-host":"ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com",
-                "x-rapidapi-key": "6138274a51msh269470a1a7722bap1995e9jsn605c74420a4d"
+                "x-rapidapi-key": "apikey"
             },"params":{
                 "Title": title,
                 "ProgramType": mediaType
@@ -43,7 +43,7 @@ class SearchBar extends React.Component {
             "headers":{
                 "content-type":"application/json",
                 "x-rapidapi-host":"ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com",
-                "x-rapidapi-key": "8fa59f5fa0mshae4cb094914cd24p18eef6jsn8cd402dcaf0a"
+                "x-rapidapi-key": "apikey"
             },"params":{
                 "Ids": mediaId,
                 "Providers": providerName
