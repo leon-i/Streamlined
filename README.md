@@ -33,7 +33,7 @@ Learning how to use the Entertainement Data Hub API to query its database and re
   
 ## Group Members and Work Breakdown
   
-**Group Members**
+**Group Members:**  
 **Isak Leon, Ivan Wang, Andrew Yoo, Joshua Park**
   
 * **Day 1**
