@@ -1,0 +1,26 @@
+{
+  "name": "streamlined",
+  "version": "1.0.0",
+  "description": "\"# Streamlined\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend-install": "npm install --prefix frontend",
+    "frontend": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leon-i/Streamlined.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leon-i/Streamlined/issues"
+  },
+  "homepage": "https://github.com/leon-i/Streamlined#readme",
+  "proxy": "http://localhost:5000",
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  }
+}
