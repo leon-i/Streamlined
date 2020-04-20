@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchBarContainer from '../searchbar/searchbar_container';
 
 class Splash extends React.Component {
 
@@ -6,6 +7,7 @@ class Splash extends React.Component {
     return (
       <div>
           <h1>Splash Page</h1>
+          <SearchBarContainer />
       </div>
     );
   }

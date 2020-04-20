@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
+const search = require("./routes/api/search");
 const User = require("./models/User");
 const bodyParser = require("body-parser");
 
@@ -17,7 +18,9 @@ app.get("/", (req, res) => {
   res.send("StreamLines");
 });
 
-app.use("/api/users", users)
+app.use("/api/users", users);
+
+app.use("/api/search", search);
 
 // app.use(passport.initialize());
 // require("./config/passport")(passport);
