@@ -17,7 +17,7 @@ body {
     align-items: center;
 }
 
-.splash h1 {
+.app-name {
     font-size: 70px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;

@@ -18,6 +18,7 @@ class SearchBar extends React.Component {
         };
 
         this.PROVIDERS = ['Netflix', 'Hulu', 'HBO', 'AmazonPrimeVideo'];
+        this.handleEnter = this.handleEnter.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -55,6 +56,14 @@ class SearchBar extends React.Component {
                 "Providers": providerName
             }
         })
+    }
+
+    handleEnter(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            e.stopPropagation();
+            this.handleSubmit(e)
+        }
     }
 
     handleChange(field) {
@@ -125,7 +134,7 @@ class SearchBar extends React.Component {
         return (
             <section className='search flex'>
                 <div className='search-bar flex'>
-                    <input type="text" onChange={this.handleChange('title')}/>
+                    <input type="text" onChange={this.handleChange('title')} onKeyDown={this.handleEnter} />
                     <button onClick={this.handleSubmit}>
                         <FontAwesomeIcon icon={faSearch} />
                     </button>
