@@ -1,3 +1,29 @@
 .navbar {
-    background: red;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.github-logo {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+.session-btns a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.session-btns {
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 20px 0 0;
+}
+
+.session-btns a:hover {
+    color: gray;
+}
+
+.session-btns a:last-child {
+    margin-left: 10px;
 }

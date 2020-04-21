@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faGithub } from '@fortawesome/free-solid-svg-icons';
 import '../../stylesheets/navbar.css';
 
 class NavBar extends React.Component {
@@ -35,7 +37,7 @@ class NavBar extends React.Component {
 
   render() {
       return (
-        <nav className='navbar'>
+        <nav className='navbar flex'>
             { this.getLinks() }
         </nav>
       );
