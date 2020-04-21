@@ -30,6 +30,10 @@ const ShowSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "providers",
   },
+  date:{
+    type: Date,
+    default: Date.now
+  }
 });
 
 module.exports = Show = mongoose.model("show", ShowSchema);
