@@ -15,7 +15,7 @@ const receiveShow = (show) => ({
 });
 
 export const searchShow = (title) => (dispatch) =>
-         ShowApiUtil.searchByTitle(title).then((show) => dispatch(receiveShow()));
+  ShowApiUtil.searchByTitle(title).then((show) => dispatch(receiveShow(show)));
 
 export const requestPopular = () => (dispatch) =>
   ShowApiUtil.fetchPopular().then((shows) =>

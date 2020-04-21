@@ -5,7 +5,7 @@ import {
 } from "../actions/show_actions";
 
 const showsReducer = (
-  state = { popular: {}, user: {}, show: undefined },
+  state = { popular: {}, user: {}, detail: undefined },
   action
 ) => {
   Object.freeze(state);
@@ -17,7 +17,7 @@ const showsReducer = (
       newState.popular = action.shows.data.results;
       return newState;
     case RECEIVE_SHOW:
-      newState.show = action.show.data;
+      newState.detail = action.show.data;
       return newState;
 
     default:

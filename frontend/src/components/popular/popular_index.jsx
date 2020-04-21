@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 //todo replace keys
 // import KEYS from "config/keys.js";
@@ -36,7 +38,8 @@ class PopularIndex extends React.Component {
       // debugger;
       return (
         <li key={show.id}>
-          <div>{show.name}</div>
+          <div><Link to={`/show/${show.name}`}>{show.name}</Link>
+            </div>
           <div>{show.vote_average}</div>
           <div>{show.popularity}</div>
           <img src={`https://image.tmdb.org/t/p/w500${show.poster_path}`} />
