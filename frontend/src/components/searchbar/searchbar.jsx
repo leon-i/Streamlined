@@ -6,7 +6,9 @@ class SearchBar extends React.Component {
         super(props);
         this.state = {
             mediaType: 'Show',
-            title: ''
+            title: '',
+            media: '',
+            providers: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -21,15 +23,36 @@ class SearchBar extends React.Component {
             "headers":{
                 "content-type":"application/json",
                 "x-rapidapi-host":"ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com",
-                "x-rapidapi-key": "apikey"
+                "x-rapidapi-key": "ff0bd0bd75msh1ff9e2cc41c3334p19d376jsn54e9c50d9a13"
             },"params":{
                 "Title": title,
                 "ProgramType": mediaType
             }
         })
         .then((response)=> {
-            debugger
-            return response;
+            const media = response.data.ProgramMatches[response.data.ProgramMatches.length - 1];
+            this.setState({ media: media });
+            axios({
+                "method":"GET",
+                "url":"https://ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com/entertainment/search/",
+                "headers":{
+                    "content-type":"application/json",
+                    "x-rapidapi-host":"ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com",
+                    "x-rapidapi-key": "ff0bd0bd75msh1ff9e2cc41c3334p19d376jsn54e9c50d9a13"
+                },"params":{
+                    "Ids": this.state.media.Id,
+                    "Providers": 'Netflix'
+                }
+            })
+            .then ((response2) => {
+                if (response2.data.Hits.length) {
+                    this.setState({ providers: 'Netflix' });
+                }
+                debugger
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
         })
         .catch((error)=>{
             console.log(error)
@@ -43,7 +66,7 @@ class SearchBar extends React.Component {
             "headers":{
                 "content-type":"application/json",
                 "x-rapidapi-host":"ivaee-internet-video-archive-entertainment-v1.p.rapidapi.com",
-                "x-rapidapi-key": "apikey"
+                "x-rapidapi-key": "ff0bd0bd75msh1ff9e2cc41c3334p19d376jsn54e9c50d9a13"
             },"params":{
                 "Ids": mediaId,
                 "Providers": providerName
@@ -65,11 +88,18 @@ class SearchBar extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const mediaRes = this.requestMedia();
-        const media = mediaRes.data.ProgramMatches[0];
+        // this.requestMedia().then(response => {
+        //     const media = response.data.ProgramMatches[0];
+        //     this.setState({ media: media });
+        //     this.requestProviders(media.Id, 'Netflix').then(providerRes => {
+        //         if (providerRes.data.Hits.length) {
+        //             this.setState({ providers: 'Netflix' });
+        //         }
+        //     })
+        // });
+        this.requestMedia();
+
         debugger
-        const providerRes = this.requestProviders(media.Id, 'Netflix');
-        // this.props.requestSearchResult(this.state);
     }
 
     render() {
