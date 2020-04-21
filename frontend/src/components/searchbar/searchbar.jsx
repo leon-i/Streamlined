@@ -3,7 +3,7 @@ import axios from 'axios';
 import KEYS from '../../config/keys';
 import SearchResults from '../search_results/search_results';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 class SearchBar extends React.Component {
     constructor(props){ 
@@ -13,6 +13,7 @@ class SearchBar extends React.Component {
             title: '',
             media: '',
             providers: [],
+            loading: false,
             done: false,
             errors: ''
         };
@@ -76,9 +77,10 @@ class SearchBar extends React.Component {
         e.preventDefault();
         let keyIdx = this.startingAPIkey();
         const providers = [];
+        this.setState({ loading: true });
         this.requestMedia(keyIdx).then(response => {
             if (!response.data.ProgramMatches.length) {
-                return this.setState({ errors: 'Content not found'});
+                return this.setState({ errors: 'Content not found', loading: false });
             } else {
                 const media = response.data.ProgramMatches[response.data.ProgramMatches.length - 1];
                 this.setState({ media: media });
@@ -114,6 +116,7 @@ class SearchBar extends React.Component {
                     if (amazonRes.data.Hits.length) {
                         providers.push('AmazonPrimeVideo');
                         this.setState({
+                            loading: false,
                             done: true,
                             providers: providers 
                         })
@@ -124,9 +127,16 @@ class SearchBar extends React.Component {
     }
 
     render() {
-        const { done, media, providers } = this.state;
+        const { loading, done, media, providers } = this.state;
         const resultsRender = done ? (
             <SearchResults media={media} providers={providers} />
+        ) : (
+            <>
+            </>
+        )
+
+        const loadingRender = loading ? (
+            <FontAwesomeIcon className='loading-icon' icon={faSpinner} spin />
         ) : (
             <>
             </>
@@ -139,6 +149,7 @@ class SearchBar extends React.Component {
                         <FontAwesomeIcon icon={faSearch} />
                     </button>
                 </div>
+                { loadingRender }
                 { resultsRender }
             </section>
         )
