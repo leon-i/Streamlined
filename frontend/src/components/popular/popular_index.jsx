@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+// import KEYS from "";
 
 //todo replace keys
-// import KEYS from "config/keys.js";
 
 // movieDBUrl: "https://api.themoviedb.org/3/",
-// movieDVImgUrl: "https://image.tmdbmorg/t/p",
+// movieDVImgUrl: "https://image.tmdb.org/t/p",
 
 class PopularIndex extends React.Component {
   constructor(props) {
@@ -38,8 +38,9 @@ class PopularIndex extends React.Component {
       // debugger;
       return (
         <li key={show.id}>
-          <div><Link to={`/show/${show.name}`}>{show.name}</Link>
-            </div>
+          <div>
+            <Link to={`/show/${show.name}`}>{show.name}</Link>
+          </div>
           <div>{show.vote_average}</div>
           <div>{show.popularity}</div>
           <img src={`https://image.tmdb.org/t/p/w500${show.poster_path}`} />
