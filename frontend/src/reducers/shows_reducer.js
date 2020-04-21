@@ -1,12 +1,24 @@
-import { RECEIVE_SHOWS, RECEIVE_SHOW } from "../actions/show_actions";
+import {
+  RECEIVE_POPULAR_SHOWS,
+  RECEIVE_SHOW,
+  RECEIVE_USER_SHOWS,
+} from "../actions/show_actions";
 
-const showsReducer = (state = [], action) => {
+const showsReducer = (
+  state = { popular: {}, user: {}, show: undefined },
+  action
+) => {
   Object.freeze(state);
+  let newState = Object.assign({}, state);
+
   switch (action.type) {
-    case RECEIVE_SHOWS:
-      return action.shows;
+    //todo receive popular shows and receive user's shows
+    case RECEIVE_POPULAR_SHOWS:
+      newState.popular = action.shows.data.results;
+      return newState;
     case RECEIVE_SHOW:
-      return action.show;
+      newState.show = action.show.data;
+      return newState;
 
     default:
       return state;

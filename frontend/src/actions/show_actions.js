@@ -1,10 +1,11 @@
 import * as ShowApiUtil from "../util/show_api_util";
 
-export const RECEIVE_SHOWS = "RECEIVE_SHOWS";
+export const RECEIVE_POPULAR_SHOWS = "RECEIVE_SHOWS";
+export const RECEIVE_USER_SHOWS = "RECEIVE_USER_SHOWS";
 export const RECEIVE_SHOW = "RECEIVE_SHOW";
 
-const receiveShows = (shows) => ({
-  type: RECEIVE_SHOWS,
+const receivePopularShows = (shows) => ({
+  type: RECEIVE_POPULAR_SHOWS,
   shows,
 });
 
@@ -13,8 +14,13 @@ const receiveShow = (show) => ({
   show,
 });
 
+export const searchShow = (title) => (dispatch) =>
+         ShowApiUtil.searchByTitle(title).then((show) => dispatch(receiveShow()));
+
 export const requestPopular = () => (dispatch) =>
-  ShowApiUtil.fetchPopular().then((shows) => dispatch(receiveShows(shows)));
+  ShowApiUtil.fetchPopular().then((shows) =>
+    dispatch(receivePopularShows(shows))
+  );
 
 export const requestShow = (title) => (dispatch) =>
   ShowApiUtil.fetchInfo(title).then((show) => dispatch(receiveShow(show)));
