@@ -9,7 +9,7 @@
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
     "start": "node app.js",
     "server": "nodemon app.js",
-    "debug": "node --inspect app.js"
+    "debug": "nodemon --inspect app.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,8 @@
     "mongoose": "^5.9.9",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "request": "^2.88.2",
+    "unirest": "^0.6.0",
     "validator": "^13.0.0"
   },
   "devDependencies": {
