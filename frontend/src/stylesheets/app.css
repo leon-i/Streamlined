@@ -1,0 +1,65 @@
+body {
+    background: #23272a;
+}
+
+.flex {
+    display: flex;
+}
+
+.main-content {
+    height: 100%;
+    width: 100%;
+}
+
+.splash {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.splash h1 {
+    font-size: 70px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin: 110px 0 36px 0;
+    color: #fff;
+}
+
+.search {
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-bar {
+    background: #fff;
+    flex-direction: row;
+    border-radius: 4px;
+}
+
+.search-bar input {
+    height: 28px;
+    width: 410px;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+}
+
+.search-bar button {
+    background: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar svg {
+    font-size: 20px;
+    margin-right: 8px;
+    color: #818181;
+}
+
+.search-bar svg:hover {
+    color: #2e2e2e;
+}

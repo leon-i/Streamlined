@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import KEYS from '../../config/keys';
+import SearchResults from '../search_results/search_results';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 class SearchBar extends React.Component {
     constructor(props){ 
@@ -112,21 +115,23 @@ class SearchBar extends React.Component {
     }
 
     render() {
-        const { done, providers } = this.state;
-        const testRender = done ? (
-            <div>
-                {providers.join(' ')}
-            </div>
+        const { done, media, providers } = this.state;
+        const resultsRender = done ? (
+            <SearchResults media={media} providers={providers} />
         ) : (
             <>
             </>
         )
         return (
-            <>
-                <input type="text" onChange={this.handleChange('title')}/>
-                <button onClick={this.handleSubmit}>Submit</button>
-                { testRender }
-            </>
+            <section className='search flex'>
+                <div className='search-bar flex'>
+                    <input type="text" onChange={this.handleChange('title')}/>
+                    <button onClick={this.handleSubmit}>
+                        <FontAwesomeIcon icon={faSearch} />
+                    </button>
+                </div>
+                { resultsRender }
+            </section>
         )
     }
 }

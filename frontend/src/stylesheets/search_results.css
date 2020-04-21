@@ -1,0 +1,28 @@
+.flex {
+    display: flex;
+}
+
+.result {
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.result-left {
+    flex-direction: column;
+}
+
+.result-right {
+    flex-direction: row;
+}
+
+.right-inner {
+    flex-direction: column;
+}
+
+.result-details {
+    flex-direction: row;
+}
+
+.providers {
+    flex-direction: column;
+}
