@@ -12,14 +12,14 @@ export const clearSearchResult = () => ({
     type: CLEAR_SEARCH_RESULT
 });
 
-// export const requestSearchResult = query => dispatch =>
-//     SearchAPIUtil.search(query).then(result => dispatch(receiveSearchResult(result)));
+export const requestSearchResult = query => dispatch =>
+    SearchAPIUtil.search(query).then(result => dispatch(receiveSearchResult(result)));
 
-export const requestSearchResult = query => dispatch => {
-    debugger
-    return SearchAPIUtil.search(query).then(result =>  {
-        debugger
-        return dispatch(receiveSearchResult(result))
-    });
-}
+// export const requestSearchResult = query => dispatch => {
+//     debugger
+//     return SearchAPIUtil.search(query).then(result =>  {
+//         debugger
+//         return dispatch(receiveSearchResult(result))
+//     });
+// }
     

@@ -2,6 +2,12 @@
     display: flex;
 }
 
+.loading-icon {
+    font-size: 50px;
+    color: #fff;
+    margin-top: 40px;
+}
+
 .result {
     flex-direction: row;
     justify-content: flex-start;
@@ -55,14 +61,21 @@
 }
 
 .result-description {
-    margin-top: 29px;
-    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 29px 10px 0 0;
 }
 
 .result-description h2 {
     font-weight: bold;
     margin-bottom: 10px;
 }
+
+.result-description p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .providers-container {
     padding-left: 10px;
     border-left: 1px solid rgba(0, 0, 0, 0.8);
@@ -85,4 +98,11 @@
 .provider-logo {
     height: 40px;
     width: 110px;
+}
+
+.error-message {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: red;
 }
