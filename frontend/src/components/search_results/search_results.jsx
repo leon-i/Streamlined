@@ -14,7 +14,7 @@ const SearchResults = ({ media, imageUrl, providers }) => {
     const runtimeRender = media.ProgramType === 'Movie' ? (
         <div className='runtime flex'>
             <h2>Runtime:</h2>
-            <p>{media.Runtime}</p>
+            <p>{media.Runtime} minutes</p>
         </div>
     ) : (
         <>
