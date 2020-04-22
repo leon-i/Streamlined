@@ -32,9 +32,11 @@ body {
 }
 
 .search-bar {
-    background: #fff;
+    height: 39.2px;
     flex-direction: row;
-    border-radius: 4px;
+    /* border-radius: 4px; */
+    border-radius: 0 4px 4px 0;
+    background: #fff;
 }
 
 .search-bar input {
@@ -42,12 +44,12 @@ body {
     width: 410px;
     font-size: 18px;
     padding: 5px 10px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     outline: none;
     border: none;
 }
 
-.search-bar button {
+.search-btn {
     background: transparent;
     outline: none;
     border: none;

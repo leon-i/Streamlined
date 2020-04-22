@@ -15,13 +15,21 @@ class SearchBar extends React.Component {
             providers: [],
             loading: false,
             done: false,
+            showDropdown: false,
             errors: ''
         };
 
+        this.toggleDropdown = this.toggleDropdown.bind(this);
         this.handleEnter = this.handleEnter.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    toggleDropdown(e) {
+        this.setState({
+            showDropdown: !this.state.showDropdown
+        });
     }
 
     handleEnter(e) {
@@ -69,7 +77,7 @@ class SearchBar extends React.Component {
     }
 
     render() {
-        const { loading, done, errors, mediaType } = this.state;
+        const { loading, done, errors, mediaType, showDropdown } = this.state;
         const { searchResults } = this.props;
         const result = Object.values(searchResults)[0];
         let media;
@@ -79,7 +87,7 @@ class SearchBar extends React.Component {
             providers = result.providers
         }
 
-        const resultsRender = done ? (
+        const resultsRender = done && !errors.length ? (
             <SearchResults media={media} providers={providers} />
         ) : (
             <>
@@ -101,12 +109,17 @@ class SearchBar extends React.Component {
         )
         return (
             <section className='search flex'>
-                <div className='search-bar flex'>
-                    <MediaTypeButtons mediaType={mediaType} handleClick={this.handleClick} />
-                    <input type="text" onChange={this.handleChange('title')} onKeyDown={this.handleEnter} />
-                    <button onClick={this.handleSubmit}>
-                        <FontAwesomeIcon icon={faSearch} />
-                    </button>
+                <div className='outer-search-bar flex'>
+                    <MediaTypeButtons mediaType={mediaType} 
+                    handleClick={this.handleClick} 
+                    toggleDropdown={this.toggleDropdown}
+                    showDropdown={showDropdown} />
+                    <div className='search-bar flex'>
+                        <input type="text" onChange={this.handleChange('title')} onKeyDown={this.handleEnter} />
+                        <button className='search-btn' onClick={this.handleSubmit}>
+                            <FontAwesomeIcon icon={faSearch} />
+                        </button>
+                    </div>
                 </div>
                 { loadingRender }
                 { resultsRender }

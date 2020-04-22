@@ -16,7 +16,18 @@ router.get('/', (req, res) => {
         if (!response.data.ProgramMatches.length) {
             return res.status(400).json({ errors: 'Content not found' });
         } else {
-            const media = response.data.ProgramMatches[response.data.ProgramMatches.length - 1];
+            const matches = response.data.ProgramMatches;
+            let media;
+            if (matches.length > 1) {
+                matches.forEach(match => {
+                    if (!media || match.Year > media.Year) {
+                        media = match;
+                    }
+                })
+            } else {
+                media = response.data.ProgramMatches[0];
+            }
+            
             searchResult.media = media;
 
             requestProviders(media.Id, 'Netflix', (keyIdx + 1) % KEYS.length).then(netflixRes => {
