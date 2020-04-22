@@ -11,7 +11,7 @@
 .result {
     flex-direction: row;
     justify-content: flex-start;
-    margin-top: 25px;
+    margin-top: 5px;
     height: 250px;
     padding: 10px 16px;
     font-family: 'Montserrat', sans-serif;
@@ -98,6 +98,40 @@
 .provider-logo {
     height: 40px;
     width: 110px;
+}
+
+.btn-dropdown {
+    flex-direction: column;
+    height: 84px;
+}
+
+.show button:last-child {
+    display: block;
+}
+
+.hide button:last-child {
+    display: none;
+}
+
+.show-btn, .movie-btn {
+    height: 39.2px;
+    font-size: 15px;
+    font-weight: bold;
+    min-width: 60px;
+    background: #98abf3;
+    border-radius: 4px 0 0 4px;
+    border: none;
+    border-right: 2px solid #23272a;
+    outline: none;
+    cursor: pointer;
+}
+
+.bottom-btn {
+    margin-top: 2.5px;
+}
+
+.show-btn:hover, .movie-btn:hover {
+    background: #7289da;
 }
 
 .error-message {

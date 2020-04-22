@@ -21,6 +21,8 @@ const SearchResults = ({ media, providers }) => {
         </>
     )
 
+    const descriptionText = media.Descriptions ? media.Descriptions[0].Description : 'No description available.';
+
     // const testRender = (
     //     <div className='result flex'>
     //     <section className='result-left flex'>
@@ -73,7 +75,6 @@ const SearchResults = ({ media, providers }) => {
     //     </section>
     // </div>
     // )
-    
     return (
         <>
         <div className='result flex'>
@@ -88,7 +89,7 @@ const SearchResults = ({ media, providers }) => {
                 <div className='right-inner flex'>
                     <section className='result-description'>
                         <h2>Description</h2>
-                        <p>{media.Descriptions[0].Description}</p>
+                        <p>{descriptionText}</p>
                     </section>
                     <section className='result-details flex'>
                         <div className='release-date flex'>
