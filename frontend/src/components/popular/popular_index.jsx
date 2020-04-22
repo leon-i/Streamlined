@@ -21,7 +21,6 @@ class PopularIndex extends React.Component {
   // handleSubmit(e) {
   //   e.preventDefault();
   //   const title = this.state.title;
-  //   debugger;
   //   this.props.requestShow(title);
   // }
 

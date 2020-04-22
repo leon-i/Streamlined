@@ -3,7 +3,6 @@ import { requestShow } from "../../actions/show_actions";
 import ShowDetail from "./show_detail";
 
 const msp = (state, ownProps) => {
-    // debugger
     return {
       show: state.entities.shows.detail,
     //   title: ownProps.match.params,

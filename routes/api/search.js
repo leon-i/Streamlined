@@ -32,10 +32,19 @@ router.get('/', (req, res) => {
             
             searchResult.media = media;
 
-            requestPoster(title).then(posterRes => {
-                const imgPath = posterRes.data.results[0].backdrop_path;
-                searchResult.imageUrl = `https://image.tmdb.org/t/p/w500${imgPath}`;
-            });
+            if (mediaType === 'Movie') {
+                requestMoviePoster(title).then(posterRes => {
+                    const imgPath = posterRes.data.results[0].backdrop_path;
+                    searchResult.imageUrl = `https://image.tmdb.org/t/p/w500${imgPath}`;
+                });
+            } else if (mediaType === 'Show') {
+                requestTVPoster(title).then(posterRes => {
+                    const imgPath = posterRes.data.results[0].backdrop_path;
+                    searchResult.imageUrl = `https://image.tmdb.org/t/p/w500${imgPath}`;
+                });
+            }
+
+            
 
             requestProviders(media.Id, 'Netflix', (keyIdx + 1) % KEYS.length).then(netflixRes => {
                 if (netflixRes.data.Hits.length) {
@@ -97,9 +106,15 @@ const requestProviders = (mediaId, providerName, keyIdx) => {
     })
 }
 
-const requestPoster = (title) => {
+const requestTVPoster = (title) => {
     return axios.get(
       `https://api.themoviedb.org/3/search/tv?api_key=${movieDBKey}&query=${title}`
+    )
+}
+
+const requestMoviePoster = (title) => {
+    return axios.get(
+        `https://api.themoviedb.org/3/search/movie?api_key=${movieDBKey}&query=${title}`
     )
 }
 
