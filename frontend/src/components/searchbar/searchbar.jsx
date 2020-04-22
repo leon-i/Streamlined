@@ -81,14 +81,16 @@ class SearchBar extends React.Component {
         const { searchResults } = this.props;
         const result = Object.values(searchResults)[0];
         let media;
+        let imageUrl;
         let providers;
         if (result) {
             media = result.media;
-            providers = result.providers
+            imageUrl = result.imageUrl;
+            providers = result.providers;
         }
 
         const resultsRender = done && !errors.length ? (
-            <SearchResults media={media} providers={providers} />
+            <SearchResults media={media} imageUrl={imageUrl} providers={providers} />
         ) : (
             <>
             </>

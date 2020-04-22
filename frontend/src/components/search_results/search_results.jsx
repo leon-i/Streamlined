@@ -2,7 +2,7 @@ import React from 'react';
 import '../../stylesheets/search_results.css';
 // import { Link } from 'react-redux';
 
-const SearchResults = ({ media, providers }) => {
+const SearchResults = ({ media, imageUrl, providers }) => {
     const providersRender = providers.map((provider, idx) => (
         <li key={idx}>
             <a href={`https://${provider}.com`}>
@@ -83,6 +83,7 @@ const SearchResults = ({ media, providers }) => {
                     <h1>{media.Title}</h1>
                 </a>
                 <div className='poster-container'>
+                    <img className='result-backdrop' src={imageUrl} alt="poster"/>
                 </div>
             </section>
             <section className='result-right flex'>

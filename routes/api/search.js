@@ -3,12 +3,14 @@ const router = express.Router();
 const axios = require('axios');
 const keys = require('../../config/keys');
 const KEYS = keys.apiKeys;
+const movieDBKey = keys.movieDBKey;
 
 router.get('/', (req, res) => {
     const { mediaType, title } = req.query;
     const keyIdx = startingAPIkey();
     const searchResult = {
         media: '',
+        imageUrl: '',
         providers: []
     }
 
@@ -29,6 +31,11 @@ router.get('/', (req, res) => {
             }
             
             searchResult.media = media;
+
+            requestPoster(title).then(posterRes => {
+                const imgPath = posterRes.data.results[0].backdrop_path;
+                searchResult.imageUrl = `https://image.tmdb.org/t/p/w500${imgPath}`;
+            });
 
             requestProviders(media.Id, 'Netflix', (keyIdx + 1) % KEYS.length).then(netflixRes => {
                 if (netflixRes.data.Hits.length) {
@@ -88,6 +95,12 @@ const requestProviders = (mediaId, providerName, keyIdx) => {
             "Providers": providerName
         }
     })
+}
+
+const requestPoster = (title) => {
+    return axios.get(
+      `https://api.themoviedb.org/3/search/tv?api_key=${movieDBKey}&query=${title}`
+    )
 }
 
 const startingAPIkey = () => (
