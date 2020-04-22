@@ -31,9 +31,7 @@ class PopularIndex extends React.Component {
 
   render() {
     if (!this.props.shows.popular.length) return null;
-    // debugger;
     const popularList = this.props.shows.popular.map((show) => {
-      // debugger;
       return (
         <li key={show.id}>
           <div>
@@ -46,9 +44,9 @@ class PopularIndex extends React.Component {
             <div className="pop-title">
               <Link to={`/show/${show.name}`}>{show.name}</Link>
             </div>
-            <div className="pop-rating">{show.vote_average}</div>
+            <div className="pop-rating">{`${show.vote_average} / 10`}</div>
             <div className="pop-count">Ratings: {show.vote_count} </div>
-            <div className="pop-pop">{Math.floor(show.popularity)}</div>
+            <div className="pop-pop">{`Popularity: ${Math.floor(show.popularity)}`}</div>
           </div>
         </li>
       );
@@ -60,7 +58,7 @@ class PopularIndex extends React.Component {
           <input type="text" onChange={this.update("title")} />
           <input type="submit" value="search" />
         </form> */}
-        <h1>Popular</h1>
+        {/* <h1>Popular</h1> */}
         <ol className="Popular-list">{popularList}</ol>
       </div>
     );
