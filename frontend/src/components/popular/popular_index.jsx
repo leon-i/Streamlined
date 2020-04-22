@@ -41,6 +41,7 @@ class PopularIndex extends React.Component {
               <img src={`https://image.tmdb.org/t/p/w500${show.poster_path}`} />
             </Link>
           </div>
+
           <div className="show-info">
             <div className="pop-title">
               <Link to={`/show/${show.name}`}>{show.name}</Link>

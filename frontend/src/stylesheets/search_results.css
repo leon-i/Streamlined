@@ -1,88 +1,109 @@
 .flex {
-    display: flex;
+  display: flex;
+}
+
+.loading-icon {
+  font-size: 50px;
+  color: #fff;
+  margin-top: 40px;
 }
 
 .result {
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-top: 25px;
-    height: 250px;
-    padding: 10px 16px;
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 4px;
-    border: 1px solid #2c2f33;
-    /* background: #99aab5; */
-    background: #fff;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 25px;
+  height: 250px;
+  padding: 10px 16px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 4px;
+  border: 1px solid #2c2f33;
+  /* background: #99aab5; */
+  background: #fff;
 }
 
 .result-left {
-    flex-direction: column;
-    min-width: 250px;
+  flex-direction: column;
+  min-width: 250px;
 }
 
 .result-left h1 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .poster-container {
-    height: 100%;
-    width: 90%;
-    background: red;
+  height: 100%;
+  width: 90%;
+  background: red;
 }
 
 .result-right {
-    flex-direction: row;
+  flex-direction: row;
 }
 
 .right-inner {
-    flex-direction: column;
-    justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .result-details {
-    flex-direction: row;
+  flex-direction: row;
 }
 
 .release-date {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
-.release-date h2, .runtime h2 {
-    font-weight: bold;
-    margin-right: 5px;
+.release-date h2,
+.runtime h2 {
+  font-weight: bold;
+  margin-right: 5px;
 }
 
 .result-description {
-    margin-top: 29px;
-    margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 29px 10px 0 0;
 }
 
 .result-description h2 {
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
+
+.result-description p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .providers-container {
-    padding-left: 10px;
-    border-left: 1px solid rgba(0, 0, 0, 0.8);
+  padding-left: 10px;
+  border-left: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 .providers-container h1 {
-    font-weight: bold;
-    margin-top: 5px;
+  font-weight: bold;
+  margin-top: 5px;
 }
 
 .provider-list {
-    flex-direction: column;
-    align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .provider-list li {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .provider-logo {
-    height: 40px;
-    width: 110px;
+  height: 40px;
+  width: 110px;
+}
+
+.error-message {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: red;
 }

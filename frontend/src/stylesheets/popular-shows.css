@@ -1,9 +1,15 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap'); */
+
 
 .populars {
   padding: 50px 7% 0px 7%;
-  /* font-family: 'Rubik', sans-serif; */
 }
+
+.populars *{
+  font-family: 'Rubik', sans-serif !important;
+}
+/* .info-block {
+  height: 100%;
+} */
 
 .Popular-list {
   display: grid;
@@ -11,6 +17,7 @@
   grid-template-rows: minmax(200px, auto);
   grid-auto-flow: dense;
   grid-gap: 1em;
+  
 }
 
 .Popular-list > li:nth-child(odd) {
@@ -24,13 +31,15 @@
   color: #fff;
   display: flex;
   place-items: center;
+  /* justify-content: space-around; */
+  
 }
 
 .Popular-list img {
-  /* object-fit: scale-down; */
-  /* position: relative; */
+  position: relative;
 
   max-width: 180px;
+
 }
 
 .Popular-list .show-info {
@@ -38,7 +47,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 100%;
+  height: 250px;
+  width: 250px;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  justify-content: space-around;
 }
 
 .Popular-list > li:nth-child(1) {
@@ -62,10 +75,11 @@
 .Popular-list > li:nth-child(2) .pop-title{
     font-weight: bold;
   font-size: 35px;
+  /* font-family: 'Rubik', sans-serif !important; */
 }
 
 .Popular-list > li:nth-child(3) {
-  grid-column: span 1;
+  grid-column: span 2;
   grid-row: span 1;
 }
 .Popular-list > li:nth-child(4) {
