@@ -8,11 +8,8 @@ const keys = require("../../config/keys");
 const jwt = require("jsonwebtoken");
 
 
-router.get("/test", (req, res) => {
-    res.json({ msg: "Testing user route" });
-});
-
 router.post('/register', (req, res) => {
+
     const { errors, isValid } = validateSignupInput(req.body);
 
     if (!isValid) {
@@ -27,7 +24,7 @@ router.post('/register', (req, res) => {
                 return res.status(400).json(errors);
             } else {
                 const newUser = new User({
-                    name: req.body.name,
+                    username: req.body.username,
                     email: req.body.email,
                     password: req.body.password
                 })
@@ -46,6 +43,7 @@ router.post('/register', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
+
     const { errors, isValid } = validateLoginInput(req.body);
 
     if (!isValid) {

@@ -1,0 +1,157 @@
+
+
+.populars {
+  padding: 50px 7% 0px 7%;
+}
+
+.populars *{
+  font-family: 'Rubik', sans-serif !important;
+}
+/* .info-block {
+  height: 100%;
+} */
+
+.Popular-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: minmax(200px, auto);
+  grid-auto-flow: dense;
+  grid-gap: 1em;
+  
+}
+
+.Popular-list > li:nth-child(odd) {
+  /* background-color: aqua; */
+}
+
+.Popular-list > li {
+  background-color: #333;
+  font-size: 20px;
+  transition: 0.8s;
+  color: #fff;
+  display: flex;
+  place-items: center;
+  /* justify-content: space-around; */
+  
+}
+
+.Popular-list img {
+  position: relative;
+
+  max-width: 180px;
+
+}
+
+.Popular-list .show-info {
+  /* align-self: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 250px;
+  width: 250px;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  justify-content: space-around;
+}
+
+.Popular-list > li:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 1;
+  
+}
+
+.Popular-list > li:nth-child(1) .pop-title{
+    font-weight: bold;
+  font-size: 35px;
+}
+
+
+.Popular-list > li:nth-child(2) {
+  grid-column: span 1;
+  grid-row: span 2;
+  flex-direction: column;
+}
+
+.Popular-list > li:nth-child(2) .pop-title{
+    font-weight: bold;
+  font-size: 35px;
+  /* font-family: 'Rubik', sans-serif !important; */
+}
+
+.Popular-list > li:nth-child(3) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+.Popular-list > li:nth-child(4) {
+  grid-column: span 1;
+  grid-row: span 2;
+  flex-direction: column;
+}
+
+.Popular-list > li:nth-child(4) .pop-title{
+    font-weight: bold;
+  font-size: 35px;
+}
+
+.Popular-list > li:nth-child(5) {
+  grid-column: span 1;
+  grid-row: span 2;
+  flex-direction: column;
+}
+
+.Popular-list > li:nth-child(5) .pop-title{
+    font-weight: bold;
+  font-size: 35px;
+}
+
+.Popular-list > li:nth-child(6) {
+  /* grid-column: span 1;
+  grid-row: span 2; */
+}
+.Popular-list > li:nth-child(7) {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.Popular-list > li:nth-child(8) {
+  border: 1px solid red;
+  grid-column: span 1;
+  grid-row: span 2;
+  flex-direction: column;
+}
+.Popular-list > li:nth-child(8) .pop-title{
+    font-weight: bold;
+  font-size: 35px;
+}
+
+.title-big{
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.title-small{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.score{
+
+}
+
+.popularity{
+
+}
+
+
+@media (max-width: 650px) {
+  .Popular-list {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    grid-template-rows: minmax(auto, auto);
+  }
+
+  .Popular-list > li{
+    grid-row: unset !important;
+    grid-column: unset !important;
+    flex-direction: row !important;
+  }
+}

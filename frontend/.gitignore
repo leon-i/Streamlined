@@ -12,6 +12,8 @@
 
 # production
 /build
+/src/config/keys
+/src/config/movieDB_key
 
 # misc
 .DS_Store
