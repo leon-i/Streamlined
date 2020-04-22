@@ -32,7 +32,7 @@ class PopularIndex extends React.Component {
   render() {
     if (!this.props.shows.popular.length) return null;
     // debugger;
-    const popularList = this.props.shows.popular.slice(0, 7).map((show) => {
+    const popularList = this.props.shows.popular.map((show) => {
       // debugger;
       return (
         <li key={show.id}>
@@ -41,12 +41,13 @@ class PopularIndex extends React.Component {
               <img src={`https://image.tmdb.org/t/p/w500${show.poster_path}`} />
             </Link>
           </div>
-          <div>
-            <div>
+          <div className="show-info">
+            <div className="pop-title">
               <Link to={`/show/${show.name}`}>{show.name}</Link>
             </div>
-            <div>{show.vote_average}</div>
-            <div>{show.popularity}</div>
+            <div className="pop-rating">{show.vote_average}</div>
+            <div className="pop-count">Ratings: {show.vote_count} </div>
+            <div className="pop-pop">{Math.floor(show.popularity)}</div>
           </div>
         </li>
       );
