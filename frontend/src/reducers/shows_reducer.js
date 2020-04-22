@@ -14,7 +14,7 @@ const showsReducer = (
   switch (action.type) {
     //todo receive popular shows and receive user's shows
     case RECEIVE_POPULAR_SHOWS:
-      newState.popular = action.shows.data.results;
+      newState.popular = action.shows.data;
       return newState;
     case RECEIVE_SHOW:
       newState.detail = action.show.data;

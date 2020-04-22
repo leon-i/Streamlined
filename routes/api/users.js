@@ -9,7 +9,7 @@ const jwt = require("jsonwebtoken");
 
 
 router.post('/register', (req, res) => {
-    debugger
+
     const { errors, isValid } = validateSignupInput(req.body);
 
     if (!isValid) {
@@ -43,7 +43,7 @@ router.post('/register', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-    debugger
+
     const { errors, isValid } = validateLoginInput(req.body);
 
     if (!isValid) {

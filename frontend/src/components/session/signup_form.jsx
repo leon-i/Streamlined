@@ -38,7 +38,6 @@ class SignupForm extends React.Component {
       password: this.state.password,
       password2: this.state.password2
     };
-    debugger
     this.props.signup(user, this.props.history); 
   }
 

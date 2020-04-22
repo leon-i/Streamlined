@@ -1,3 +1,0 @@
-const MOVIEDBKEY = "14e144325a4d4e94c4d3af666779eb96";
-
-export default MOVIEDBKEY;
