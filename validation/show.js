@@ -1,2 +1,0 @@
-const Validator = require('validator');
-

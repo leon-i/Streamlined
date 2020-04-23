@@ -1,5 +1,5 @@
 import React from "react";
-import AddToCartContainer from '../cart/add_to_cart_container'
+import AddToQueueContainer from '../queue/add_to_queue_container'
 
 class ShowDetail extends React.Component {
 
@@ -26,8 +26,7 @@ class ShowDetail extends React.Component {
 
     return (
       <div>
-        {/* send show.name */}
-        <AddToCartContainer title={name} />
+        <AddToQueueContainer show={show} />
         <h1>{name}</h1>
         <div></div>
         <div>{networks[0].name}</div>

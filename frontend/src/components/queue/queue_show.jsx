@@ -1,4 +1,5 @@
 import React from "react";
+import QueueItems from "./queue_items";
 
 class QueueShow extends React.Component {
   componentDidMount() {
@@ -10,7 +11,9 @@ class QueueShow extends React.Component {
     if (!likedShows.length) return null;
 
     const queue = likedShows.map((show, idx) => (
-      <li key={idx}>{show.title}</li>
+      <li key={idx}><QueueItems title={show.title} /></li>
+      
+      // <li key={idx}>{show.title}</li>
     ));
 
     return (

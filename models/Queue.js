@@ -1,7 +1,7 @@
-const mongoose = requier("mongoose");
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const ShowSchema = new Schema({
+const QueueSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -14,11 +14,7 @@ const ShowSchema = new Schema({
     type: Number,
     required: true,
   },
-  releaseDate: {
-    type: Date,
-    required: true,
-  },
-  Genres: {
+  genres: {
     type: Array,
     required: true,
   },
@@ -27,13 +23,22 @@ const ShowSchema = new Schema({
     required: true,
   },
   provider: {
-    type: Schema.Types.ObjectId,
-    ref: "providers",
+    type: Array,
+    default: [],
   },
-  date:{
+  // provider: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "providers",
+  // },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "users",
+  },
+  date: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-module.exports = Show = mongoose.model("show", ShowSchema);
+ Queue = mongoose.model("queues", QueueSchema);
+ module.exports = Queue

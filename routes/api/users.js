@@ -86,12 +86,12 @@ router.post("/login", (req, res) => {
 });
 
 router.post(
-  "/addToCart", ///:user_id/addToCart
+  "/addToCart", 
   (req, res) => {
     // debugger;
     const { title, userId } = req.body.params;
     User.findById(userId).then((user) => {
-    //   debugger;
+      //   debugger;
       let duplicate = false;
 
       user.likedShows.forEach((cartInfo) => {
@@ -100,7 +100,7 @@ router.post(
         }
       });
       //provider,title. imgurl
-    //   debugger;
+      //   debugger;
       if (duplicate) {
         // if dulicate, should delete the title
         // debugger
@@ -117,9 +117,7 @@ router.post(
         //     { $inc: { "likedShows.$.quantity": 1 } },
         //     { new: true },
         //     () => {
-        //     //     debugger
         //     //   if (err) return res.json({ success: false, err });
-        //     //   debugger
         //       res.status(200).json(user.likedShows);
         //     }
         //   );
@@ -131,7 +129,7 @@ router.post(
             $push: {
               likedShows: {
                 title: title,
-                  quantity: 1,
+                quantity: 1,
                 date: Date.now(),
               },
             },
@@ -147,12 +145,13 @@ router.post(
   }
 );
 
-router.get("/likedShows", (req, res) => {
-//   debugger;
-  const userId  = req.query[0];
-  User.findById(userId).then((user) => {
+router.get("/queue", (req, res) => {
+  //   debugger;
+  const userId = req.query[0];
+  User.findById(userId).populate("queues");
+  then((user) => {
     //   debugger
-    res.status(200).json(user.likedShows);
+    res.status(200).json(user);
   });
 });
 

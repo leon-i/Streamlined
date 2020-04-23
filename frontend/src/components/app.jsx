@@ -7,7 +7,7 @@ import Splash from "./splash/splash";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import ShowDetailContainer from "./shows/show_detail_container";
-import QueueShowContainer from './cart/queue_show_container';
+import QueueShowContainer from './queue/queue_show_container';
 
 import "../stylesheets/app.css";
 
