@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 
     requestMedia(mediaType, title, keyIdx).then(response => {
         if (!response.data.ProgramMatches.length) {
-            return res.status(400).json({ errors: 'Content not found' });
+            return res.status(404).json({ errors: 'Content not found' });
         } else {
             const matches = response.data.ProgramMatches;
             let media;

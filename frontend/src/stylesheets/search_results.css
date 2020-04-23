@@ -33,6 +33,10 @@
   margin-bottom: 10px;
 }
 
+.result-left h1:hover {
+  color: #98abf3;
+}
+
 .poster-container {
   height: 100%;
   width: 90%;
@@ -56,6 +60,12 @@
 
 .result-details {
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.result-details-left {
+  flex-direction: row;
+  align-items: flex-end;
 }
 
 .release-date {
@@ -85,6 +95,19 @@
   text-overflow: ellipsis;
 }
 
+.queue-btn {
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 2px;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  outline: none;
+  background: #98abf3;
+  color: #23272a;
+  cursor: pointer;
+}
+
 .providers-container {
   padding-left: 20px;
   border-left: 1.5px solid lightgray;
@@ -112,7 +135,15 @@
 
 .btn-dropdown {
     flex-direction: column;
-    height: 84px;
+}
+
+.show {
+  height: 84px;
+}
+
+.hide {
+  height: 40px;
+  margin-bottom: 44px;
 }
 
 .show button:last-child {
@@ -140,13 +171,13 @@
     margin-top: 2.5px;
 }
 
-.show-btn:hover, .movie-btn:hover {
+.show-btn:hover, .movie-btn:hover, .queue-btn:hover {
     background: #7289da;
 }
 
 .error-message {
   font-size: 20px;
   font-weight: bold;
-  margin-top: 20px;
+  margin-bottom: 30px;
   color: red;
 }

@@ -3,6 +3,7 @@ import '../../stylesheets/search_results.css';
 // import { Link } from 'react-redux';
 
 const SearchResults = ({ media, imageUrl, providers }) => {
+    if (!media || !imageUrl || !providers) return null;
     const providersRender = providers.map((provider, idx) => (
         <li key={idx}>
             <a href={`https://${provider}.com`}>
@@ -93,11 +94,14 @@ const SearchResults = ({ media, imageUrl, providers }) => {
                         <p>{descriptionText}</p>
                     </section>
                     <section className='result-details flex'>
-                        <div className='release-date flex'>
-                            <h2>Released:</h2>
-                            <p>{media.Year}</p>
+                        <div className='result-details-left flex'>
+                            <div className='release-date flex'>
+                                <h2>Released:</h2>
+                                <p>{media.Year}</p>
+                            </div>
+                            { runtimeRender }
                         </div>
-                        { runtimeRender }
+                        <button className='queue-btn'>ADD TO QUEUE</button>
                     </section>
                 </div>
                 <div className='providers-container'>
