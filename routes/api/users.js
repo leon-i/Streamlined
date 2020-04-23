@@ -31,10 +31,25 @@ router.post("/register", (req, res) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
           if (err) throw err;
           newUser.password = hash;
-          newUser
-            .save()
-            .then((user) => res.json(user))
-            .catch((err) => console.log(err));
+          newUser.save().then((user) => {
+            const payload = {
+              id: user.id,
+              email: user.email,
+              username: user.username,
+            };
+
+            jwt.sign(
+              payload,
+              keys.secretOrKey,
+              { expiresIn: 3600 },
+              (err, token) => {
+                res.json({
+                  success: true,
+                  token: "Bearer " + token,
+                });
+              }
+            );
+          });
         });
       });
     }
@@ -64,7 +79,7 @@ router.post("/login", (req, res) => {
           id: user.id,
           username: user.username,
           email: user.email,
-          queues: user.queues
+          queue: user.queue,
         };
         jwt.sign(
           payload,
@@ -87,7 +102,7 @@ router.post("/login", (req, res) => {
 });
 
 // router.post(
-//   "/addToCart", 
+//   "/addToCart",
 //   (req, res) => {
 //     // debugger;
 //     const { title, userId } = req.body.params;
@@ -147,13 +162,11 @@ router.post("/login", (req, res) => {
 // );
 
 router.get("/queue", (req, res) => {
-    // debugger;
   const userId = req.query[0];
-  debugger
-  User.findById(userId).populate("queues")
-  .then((user) => {
-      debugger
-    res.status(200).json(user.queues);
+  User.findById(userId).then((user) => {
+    if (user) {
+      res.status(200).json(user.queue);
+    }
   });
 });
 

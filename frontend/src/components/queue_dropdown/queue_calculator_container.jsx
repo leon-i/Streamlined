@@ -1,9 +1,7 @@
 import { connect } from "react-redux";
-import { logout } from "../../actions/session_actions";
-import { clearSearchResult } from "../../actions/search_actions";
 import { requestQueue } from "../../actions/queue_actions";
 
-import NavBar from "./navbar";
+import QueueCalculator from "./queue_calculator";
 
 const mapStateToProps = (state) => ({
   loggedIn: state.session.isAuthenticated,
@@ -12,9 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout()),
-  clearSearchResult: () => dispatch(clearSearchResult()),
   requestQueue: (userId) => dispatch(requestQueue(userId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(QueueCalculator);

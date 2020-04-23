@@ -13,5 +13,7 @@ export const addToQueue = (data) => (dispatch) =>
   QueueApiUtil.addToQueue(data).then((queue) => dispatch(receiveQueue(queue)));
 
 
-  export const requestQueue = (userId) => (dispatch) =>
-           QueueApiUtil.fetchQueue(userId).then((queue) => receiveQueue(queue));
+export const requestQueue = (userId) => (dispatch) =>
+         QueueApiUtil.fetchQueue(userId).then((queue) =>
+           dispatch(receiveQueue(queue))
+         );

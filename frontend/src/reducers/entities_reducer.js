@@ -1,11 +1,9 @@
 import { combineReducers } from "redux";
 import showsReducer from "./shows_reducer";
-import queuesReducer from './queues_reducer';
-
+import queueReducer from "./queue_reducer";
 
 const entitiesReducer = combineReducers({
-
-  queues: queuesReducer,
+  queue: queueReducer,
   shows: showsReducer,
 });
 

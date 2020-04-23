@@ -7,7 +7,6 @@ class AddToQueueButton extends React.Component {
   }
 
   addToQueue() {
-    // debugger;
     const { show } = this.props;
     this.props.addToQueue({
       title: show.name,
@@ -16,13 +15,12 @@ class AddToQueueButton extends React.Component {
       genres: show.genres,
       imageUrl: `https://image.tmdb.org/t/p/w500${show.poster_path}`,
       provider: show.networks,
-      user: this.props.currentUserId,
+      user: this.props.currentUser.id,
     });
   }
 
   render() {
-    debugger
-    if(!this.props.currentUserId) return null;
+    if (!this.props.currentUser) return null;
     return (
       <div>
         <button onClick={this.addToQueue}>Add to queue</button>

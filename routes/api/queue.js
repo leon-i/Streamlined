@@ -5,7 +5,6 @@ const User = require("../../models/User");
 const validateQueueInput = require("../../validation/queue");
 
 router.post("/", (req, res) => {
-  debugger;
   const data = req.body.params;
   //   debugger
   //   const { errors, isValid } = validateQueueInput(data);
@@ -20,13 +19,11 @@ router.post("/", (req, res) => {
   const newQueueItem = new Queue(data);
   newQueueItem.save().then((queue) => {
     User.findById(queue.user).then((user) => {
-      debugger;
       if (user) {
-        debugger
-        user.queues.push(newQueueItem);
+        user.queue.push(newQueueItem);
         user.save().then((user) => {
-          debugger
-          res.json(user.queues)});
+          res.json(user.queue);
+        });
       }
     });
   });
