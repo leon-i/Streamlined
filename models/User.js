@@ -14,6 +14,14 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    likedShows: { //push title
+        type: Array,
+        default: []
+    },
+    history: {
+        type: Array,
+        default: []
+    },
     date: {
         type: Date,
         default: Date.now

@@ -7,6 +7,12 @@ export const fetchInfo = (title) =>
     params: title,
   });
 
+export const fetchLikedShows = (userId) => {
+  return axios.get("/api/users/likedShows", {
+    params: userId,
+  });
+};
+
 // export const searchByTitle = (title) =>
 //   axios
 //     .get(

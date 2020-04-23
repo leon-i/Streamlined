@@ -1,9 +1,13 @@
 import React from "react";
+import AddToCartContainer from '../cart/add_to_cart_container'
 
 class ShowDetail extends React.Component {
+
   componentDidMount() {
     this.props.requestShow(this.props.match.params.title);
   }
+
+
 
   render() {
     const { show } = this.props;
@@ -22,10 +26,11 @@ class ShowDetail extends React.Component {
 
     return (
       <div>
+        {/* send show.name */}
+        <AddToCartContainer title={name} />
         <h1>{name}</h1>
         <div></div>
         <div>{networks[0].name}</div>
-
         <div>Rating: {vote_average}</div>
         <div>Votings: {vote_count}</div>
         <div>{`${seasons.length} Seasons`}</div>

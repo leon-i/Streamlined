@@ -1,11 +1,11 @@
 import {
   RECEIVE_POPULAR_SHOWS,
   RECEIVE_SHOW,
-  RECEIVE_USER_SHOWS,
+  RECEIVE_LIKED_SHOWS,
 } from "../actions/show_actions";
 
 const showsReducer = (
-  state = { popular: {}, user: {}, detail: undefined },
+  state = { popular: {}, liked: [], detail: undefined },
   action
 ) => {
   Object.freeze(state);
@@ -18,6 +18,9 @@ const showsReducer = (
       return newState;
     case RECEIVE_SHOW:
       newState.detail = action.show.data;
+      return newState;
+    case RECEIVE_LIKED_SHOWS:
+      newState.liked = action.shows.data;
       return newState;
 
     default:
