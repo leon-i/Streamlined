@@ -8,7 +8,7 @@ export const fetchInfo = (title) =>
   });
 
 export const fetchLikedShows = (userId) => {
-  return axios.get("/api/users/likedShows", {
+  return axios.get("/api/users/queue", {
     params: userId,
   });
 };

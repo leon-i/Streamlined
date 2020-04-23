@@ -14,15 +14,11 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  queues: {
+  queues: [{
     type: Schema.Types.ObjectId,
     ref: "queues",
-  },
+  }],
   // likedShows: { //push title
-  //     type: Array,
-  //     default: []
-  // },
-  // history: {
   //     type: Array,
   //     default: []
   // },
@@ -32,6 +28,6 @@ const UserSchema = new Schema({
   },
 });
 
-const User = mongoose.model("users", UserSchema);
+const UserModel = mongoose.model("users", UserSchema);
 
-module.exports = User;
+module.exports = UserModel;

@@ -85,72 +85,72 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.post(
-  "/addToCart", 
-  (req, res) => {
-    // debugger;
-    const { title, userId } = req.body.params;
-    User.findById(userId).then((user) => {
-      //   debugger;
-      let duplicate = false;
+// router.post(
+//   "/addToCart", 
+//   (req, res) => {
+//     // debugger;
+//     const { title, userId } = req.body.params;
+//     User.findById(userId).then((user) => {
+//       //   debugger;
+//       let duplicate = false;
 
-      user.likedShows.forEach((cartInfo) => {
-        if (cartInfo.title === title) {
-          duplicate = true;
-        }
-      });
-      //provider,title. imgurl
-      //   debugger;
-      if (duplicate) {
-        // if dulicate, should delete the title
-        // debugger
-        // User.findOneAndDelete(
-        //     { _id: userId, title: title },
-        //     { new: true },
-        //     () => {
-        //         debugger
-        //         res.status(200).json(user.likedShows);
-        //     }
-        // )
-        //   User.findByIdAndUpdate(
-        //     { _id: userId, title: title },
-        //     { $inc: { "likedShows.$.quantity": 1 } },
-        //     { new: true },
-        //     () => {
-        //     //   if (err) return res.json({ success: false, err });
-        //       res.status(200).json(user.likedShows);
-        //     }
-        //   );
-      } else {
-        // debugger;
-        User.findByIdAndUpdate(
-          { _id: userId },
-          {
-            $push: {
-              likedShows: {
-                title: title,
-                quantity: 1,
-                date: Date.now(),
-              },
-            },
-          },
-          { new: true },
-          (err, user) => {
-            if (err) return res.json({ success: false, err });
-            res.status(200).json(user.likedShows);
-          }
-        );
-      }
-    });
-  }
-);
+//       user.likedShows.forEach((cartInfo) => {
+//         if (cartInfo.title === title) {
+//           duplicate = true;
+//         }
+//       });
+//       //provider,title. imgurl
+//       //   debugger;
+//       if (duplicate) {
+//         // if dulicate, should delete the title
+//         // debugger
+//         // User.findOneAndDelete(
+//         //     { _id: userId, title: title },
+//         //     { new: true },
+//         //     () => {
+//         //         debugger
+//         //         res.status(200).json(user.likedShows);
+//         //     }
+//         // )
+//         //   User.findByIdAndUpdate(
+//         //     { _id: userId, title: title },
+//         //     { $inc: { "likedShows.$.quantity": 1 } },
+//         //     { new: true },
+//         //     () => {
+//         //     //   if (err) return res.json({ success: false, err });
+//         //       res.status(200).json(user.likedShows);
+//         //     }
+//         //   );
+//       } else {
+//         // debugger;
+//         User.findByIdAndUpdate(
+//           { _id: userId },
+//           {
+//             $push: {
+//               likedShows: {
+//                 title: title,
+//                 quantity: 1,
+//                 date: Date.now(),
+//               },
+//             },
+//           },
+//           { new: true },
+//           (err, user) => {
+//             if (err) return res.json({ success: false, err });
+//             res.status(200).json(user.likedShows);
+//           }
+//         );
+//       }
+//     });
+//   }
+// );
 
 router.get("/queue", (req, res) => {
-  //   debugger;
+    debugger;
   const userId = req.query[0];
-  User.findById(userId).populate("queues");
-  then((user) => {
-    //   debugger
+  User.findById(userId).populate("queues")
+  .then((user) => {
+      // debugger
     res.status(200).json(user);
   });
 });
