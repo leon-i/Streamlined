@@ -75,6 +75,13 @@ class LoginForm extends React.Component {
               />
             <br/>
             <input type="submit" value="Submit" />
+            <br/>
+              <button onClick={(e) => {
+                e.preventDefault();
+                this.props.demo();
+              }} className='demo-user'>
+                Demo User
+              </button>
             {this.renderErrors()}
           </div>
         </form>

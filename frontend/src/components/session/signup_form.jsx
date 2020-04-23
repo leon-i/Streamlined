@@ -57,6 +57,7 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-form-container">
+        <h1 className="user-auth-logo">StreamLined.</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="signup-form">
             <br/>
@@ -84,7 +85,15 @@ class SignupForm extends React.Component {
                 placeholder="Confirm Password"
               />
             <br/>
-            <input type="submit" value="Submit" />
+              <input type="submit" value="Sign Up" />
+            <br/>
+              <button onClick={(e) => {
+                e.preventDefault();
+                this.props.demo();
+              }} className='demo-user'>
+                Demo User
+              </button>
+            <br/>
             {this.renderErrors()}
           </div>
         </form>
