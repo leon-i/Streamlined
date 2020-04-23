@@ -38,7 +38,10 @@ class NavBar extends React.Component {
   render() {
       return (
         <nav className='navbar flex'>
-            { this.getLinks() }
+          <Link to={'/'}>
+            <img className='logo' src={process.env.PUBLIC_URL + '/Streamlined_Logo.svg'} alt='stream-logo' />
+          </Link>
+          { this.getLinks() }
         </nav>
       );
   }

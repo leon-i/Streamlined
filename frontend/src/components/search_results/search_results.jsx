@@ -3,6 +3,7 @@ import '../../stylesheets/search_results.css';
 // import { Link } from 'react-redux';
 
 const SearchResults = ({ media, imageUrl, providers }) => {
+    if (!media || !imageUrl || !providers) return null;
     const providersRender = providers.map((provider, idx) => (
         <li key={idx}>
             <a href={`https://${provider}.com`}>
