@@ -39,7 +39,9 @@ class NavBar extends React.Component {
       return (
         <nav className='navbar flex'>
           <Link to={'/'}>
-            <img className='logo' src={process.env.PUBLIC_URL + '/Streamlined_Logo.svg'} alt='stream-logo' />
+            <img className='logo' src={process.env.PUBLIC_URL + '/Streamlined_Logo.svg'} 
+              alt='stream-logo'
+              onClick={() => this.props.clearSearchResult()} />
           </Link>
           { this.getLinks() }
         </nav>
