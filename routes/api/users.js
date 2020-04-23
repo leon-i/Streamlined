@@ -64,6 +64,7 @@ router.post("/login", (req, res) => {
           id: user.id,
           username: user.username,
           email: user.email,
+          queues: user.queues
         };
         jwt.sign(
           payload,
@@ -146,11 +147,12 @@ router.post("/login", (req, res) => {
 // );
 
 router.get("/queue", (req, res) => {
-    debugger;
+    // debugger;
   const userId = req.query[0];
+  debugger
   User.findById(userId).populate("queues")
   .then((user) => {
-      // debugger
+      debugger
     res.status(200).json(user);
   });
 });

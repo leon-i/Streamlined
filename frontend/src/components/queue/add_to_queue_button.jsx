@@ -21,6 +21,8 @@ class AddToQueueButton extends React.Component {
   }
 
   render() {
+    debugger
+    if(!this.props.currentUserId) return null;
     return (
       <div>
         <button onClick={this.addToQueue}>Add to queue</button>

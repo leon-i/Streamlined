@@ -17,10 +17,11 @@ router.post("/", (req, res) => {
   //   debugger
 
   const newQueueItem = new Queue(data);
-  newQueueItem.save().then((newQueueItem) => {
-    User.findById(newQueueItem.user).then((user) => {
+  newQueueItem.save().then((queue) => {
+    User.findById(queue.user).then((user) => {
       debugger;
       if (user) {
+        debugger
         user.queues.push(newQueueItem);
         user.save().then((user) => res.json(user));
       }

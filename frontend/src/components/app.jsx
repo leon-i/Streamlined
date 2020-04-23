@@ -7,7 +7,6 @@ import Splash from "./splash/splash";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import ShowDetailContainer from "./shows/show_detail_container";
-import QueueShowContainer from './queue/queue_show_container';
 
 import "../stylesheets/app.css";
 
@@ -16,11 +15,9 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <Route exact path="/" component={Splash} />
-      {/* <AuthRoute exact path="/" component={SplashContainer} /> */}
       <Route exact path="/login" component={LoginFormContainer} />
       <Route exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/show/:title" component={ShowDetailContainer} />
-      <Route exact path="/myqueue" component={QueueShowContainer} />
     </Switch>
   </div>
 );

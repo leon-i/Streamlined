@@ -14,11 +14,11 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  queues: [{
-    type: Schema.Types.ObjectId,
-    ref: "queues",
-  }],
-  // likedShows: { //push title
+  queues: {
+    type: Array,
+    default: [],
+  },
+  // likedShows: { 
   //     type: Array,
   //     default: []
   // },
