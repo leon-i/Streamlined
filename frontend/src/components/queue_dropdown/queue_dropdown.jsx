@@ -1,6 +1,16 @@
 import React from 'react';
 import QueueItem from './queue_item';
-import '../../stylesheets/queue_dropdown.css'
+import QueueCalculator from './queue_calculator';
+import '../../stylesheets/queue_dropdown.css';
+
+// const calculateStartingCost = (providers) => {
+//     let cost = 0;
+//     if (providers.includes('Netflix')) cost += 13;
+//     if (providers.includes('Hulu')) cost += 6;
+//     if (providers.includes('HBO')) cost += 15;
+//     if (providers.includes('AmazonPrimeVideo')) cost += 9;
+//     return cost;
+// }
 
 const QueueDropdown = React.forwardRef(({ currentUser, showQueue }, ref) => {
     if (!currentUser) return null;
@@ -20,10 +30,7 @@ const QueueDropdown = React.forwardRef(({ currentUser, showQueue }, ref) => {
                 </ul>
             </section>
             <button className='clear-queue-btn'>CLEAR QUEUE</button>
-            <section className='queue-cost flex'>
-                <h2>Total cost:</h2>
-                <p>$50</p>
-            </section>
+            <QueueCalculator providers={['Netflix', 'Hulu']} />
         </div>
     )
 });
