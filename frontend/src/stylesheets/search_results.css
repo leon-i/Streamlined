@@ -95,17 +95,20 @@
   text-overflow: ellipsis;
 }
 
-.queue-btn {
+.queue-btn, .clear-queue-btn {
   font-size: 16px;
   font-weight: bold;
   border-radius: 2px;
   padding: 8px 16px;
-  margin-right: 10px;
   border: none;
   outline: none;
   background: #98abf3;
   color: #23272a;
   cursor: pointer;
+}
+
+.queue-btn {
+  margin-right: 10px;
 }
 
 .providers-container {
@@ -171,7 +174,7 @@
     margin-top: 2.5px;
 }
 
-.show-btn:hover, .movie-btn:hover, .queue-btn:hover {
+.show-btn:hover, .movie-btn:hover, .queue-btn:hover, .clear-queue-btn:hover {
     background: #7289da;
 }
 
