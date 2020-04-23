@@ -49,20 +49,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 250px;
+  height: 200px;
   width: 250px;
   text-align: center;
   justify-content: space-around;
   padding: 8px;
 }
 
-.pop-title {
-  margin-top: 10px;
-}
-
 .pop-title, .pop-rating, .pop-count {
   font-size: 14px;
   font-weight: bold;
+}
+
+.pop-count {
+  line-height: 18px;
 }
 
 .pop-pop {

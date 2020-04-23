@@ -40,6 +40,8 @@
 }
 
 .session-btns a {
+    font-size: 16px;
+    font-weight: bold;
     text-decoration: none;
     color: #fff;
 }
@@ -51,9 +53,23 @@
 }
 
 .session-btns a:hover {
-    color: gray;
+    color: #98abf3;
 }
 
 .session-btns a:last-child {
     margin-left: 10px;
+}
+
+.open-queue-btn, .logout-btn {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.open-queue-btn:hover, .logout-btn:hover {
+    color: #98abf3;
 }
