@@ -15,9 +15,13 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <Route exact path="/" component={Splash} />
-      <Route exact path="/login" component={LoginFormContainer} />
-      <Route exact path="/signup" component={SignupFormContainer} />
-      <Route exact path="/show/:title" component={ShowDetailContainer} />
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route exact path="/show/:title" component={ShowDetailContainer}/>
+
+      {/* CHANGE /profile COMPONENT LATER. I DID THIS FOR TESTING PURPOSES  */}
+      <ProtectedRoute exact path="/profile" component={ShowDetailContainer} />
+
     </Switch>
   </div>
 );

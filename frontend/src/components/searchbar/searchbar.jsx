@@ -55,6 +55,7 @@ class SearchBar extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.props.clearSearchErrors();
         this.props.clearSearchResult();
         const { mediaType, title } = this.state;
         this.setState({
@@ -68,27 +69,27 @@ class SearchBar extends React.Component {
                 loading: false,
                 done: true
             })
-        }).catch(error => {
-            return this.setState({
-                loading: false,
-                errors: 'Content not found'
-            })
-        });
+        })
     }
 
     render() {
-        const { loading, done, errors, mediaType, showDropdown } = this.state;
-        const { searchResults } = this.props;
+        const { loading, done, mediaType, showDropdown } = this.state;
+        const { searchResults, search } = this.props;
         const result = Object.values(searchResults)[0];
         let media;
+        let imageUrl;
         let providers;
         if (result) {
             media = result.media;
-            providers = result.providers
+            imageUrl = result.imageUrl;
+            providers = result.providers;
         }
 
-        const resultsRender = done && !errors.length ? (
-            <SearchResults media={media} providers={providers} />
+        const placeholderMessage = mediaType === "Show" ? "Search for a show to see where it's streamed..." 
+            : "Search for a movie to see where it's streamed...";
+
+        const resultsRender = done && !search.length ? (
+            <SearchResults media={media} imageUrl={imageUrl} providers={providers} />
         ) : (
             <>
             </>
@@ -101,8 +102,8 @@ class SearchBar extends React.Component {
             </>
         )
 
-        const errorsRender = errors ? (
-            <h2 className='error-message'>{errors}</h2>
+        const errorsRender = search.length ? (
+            <h2 className='error-message'>Content not found.</h2>
         ) : (
             <>
             </>
@@ -115,7 +116,10 @@ class SearchBar extends React.Component {
                     toggleDropdown={this.toggleDropdown}
                     showDropdown={showDropdown} />
                     <div className='search-bar flex'>
-                        <input type="text" onChange={this.handleChange('title')} onKeyDown={this.handleEnter} />
+                        <input type="text" 
+                            onChange={this.handleChange('title')} 
+                            onKeyDown={this.handleEnter} 
+                            placeholder={placeholderMessage} />
                         <button className='search-btn' onClick={this.handleSubmit}>
                             <FontAwesomeIcon icon={faSearch} />
                         </button>

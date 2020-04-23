@@ -1,13 +1,17 @@
-import * as QueueApiUtil from '../util/queue_api_util'
-import {receiveCurrentUser} from '../actions/session_actions'
+import * as QueueApiUtil from "../util/queue_api_util";
 
 export const RECEIVE_QUEUE = "RECEIVE_QUEUE";
-const receiveQueue = queue => ({
-    type: RECEIVE_QUEUE,
-    queue
-})
+export const RECEIVE_QUEUES = "RECEIVE_QUEUES";
+
+const receiveQueue = (queue) => ({
+  type: RECEIVE_QUEUE,
+  queue,
+});
+
 
 export const addToQueue = (data) => (dispatch) =>
-         QueueApiUtil.addToQueue(data).then((user) =>
-           dispatch(receiveCurrentUser(user))
-         );
+  QueueApiUtil.addToQueue(data).then((queue) => dispatch(receiveQueue(queue)));
+
+
+  export const requestQueue = (userId) => (dispatch) =>
+           QueueApiUtil.fetchQueue(userId).then((queue) => receiveQueue(queue));

@@ -153,7 +153,7 @@ router.get("/queue", (req, res) => {
   User.findById(userId).populate("queues")
   .then((user) => {
       debugger
-    res.status(200).json(user);
+    res.status(200).json(user.queues);
   });
 });
 

@@ -15,6 +15,7 @@ router.post("/", (req, res) => {
   //   }
 
   //   debugger
+  // Queue.findOne({})
 
   const newQueueItem = new Queue(data);
   newQueueItem.save().then((queue) => {
@@ -23,7 +24,9 @@ router.post("/", (req, res) => {
       if (user) {
         debugger
         user.queues.push(newQueueItem);
-        user.save().then((user) => res.json(user));
+        user.save().then((user) => {
+          debugger
+          res.json(user.queues)});
       }
     });
   });

@@ -2,7 +2,8 @@ import React from 'react';
 import '../../stylesheets/search_results.css';
 // import { Link } from 'react-redux';
 
-const SearchResults = ({ media, providers }) => {
+const SearchResults = ({ media, imageUrl, providers }) => {
+    if (!media || !imageUrl || !providers) return null;
     const providersRender = providers.map((provider, idx) => (
         <li key={idx}>
             <a href={`https://${provider}.com`}>
@@ -14,7 +15,7 @@ const SearchResults = ({ media, providers }) => {
     const runtimeRender = media.ProgramType === 'Movie' ? (
         <div className='runtime flex'>
             <h2>Runtime:</h2>
-            <p>{media.Runtime}</p>
+            <p>{media.Runtime} minutes</p>
         </div>
     ) : (
         <>
@@ -83,6 +84,7 @@ const SearchResults = ({ media, providers }) => {
                     <h1>{media.Title}</h1>
                 </a>
                 <div className='poster-container'>
+                    <img className='result-backdrop' src={imageUrl} alt="poster"/>
                 </div>
             </section>
             <section className='result-right flex'>
@@ -92,11 +94,14 @@ const SearchResults = ({ media, providers }) => {
                         <p>{descriptionText}</p>
                     </section>
                     <section className='result-details flex'>
-                        <div className='release-date flex'>
-                            <h2>Released:</h2>
-                            <p>{media.Year}</p>
+                        <div className='result-details-left flex'>
+                            <div className='release-date flex'>
+                                <h2>Released:</h2>
+                                <p>{media.Year}</p>
+                            </div>
+                            { runtimeRender }
                         </div>
-                        { runtimeRender }
+                        <button className='queue-btn'>ADD TO QUEUE</button>
                     </section>
                 </div>
                 <div className='providers-container'>

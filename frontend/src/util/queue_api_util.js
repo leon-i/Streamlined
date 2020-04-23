@@ -5,3 +5,9 @@ export const addToQueue = data => (
         params: data
     })
 )
+
+export const fetchQueue = (userId) => (
+    Axios.get('/api/users/queue', {
+        params: userId
+    })
+) 
