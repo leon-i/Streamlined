@@ -46,6 +46,7 @@ class NavBar extends React.Component {
             queue={this.props.queue}
             currentUser={this.props.currentUser}
             showQueue={this.state.showDropdown}
+            removeFromQueue={this.props.removeFromQueue}
             ref={this.dropdownRef}
           />
           <div className="session-btns">

@@ -29,7 +29,6 @@ class ShowDetail extends React.Component {
           className="backdrop"
           src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
         />
-
         <div className="information">
           <img
             className="poster"

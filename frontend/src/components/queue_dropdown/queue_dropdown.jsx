@@ -12,30 +12,36 @@ import "../../stylesheets/queue_dropdown.css";
 //     return cost;
 // }
 
-const QueueDropdown = React.forwardRef(({ currentUser, showQueue, queue }, ref) => {
-  if (!currentUser) return null;
-  const dropdownName = showQueue
-    ? "queue-dropdown-show flex"
-    : "queue-dropdown-hide";
-  const queueItems = queue.map(queueItem => (
-      <QueueItem queueItem={queueItem} />
-  ))
-  return (
-    <div className={dropdownName} ref={ref}>
-      <h2>{`${currentUser.username}'s Queue`}</h2>
-      <section className="queue-list-container">
-        <ul className="queue-list flex">
-          {queueItems}
-          {/* <QueueItem providers="Netflix Hulu HBO AmazonPrimeVideo" />
+const QueueDropdown = React.forwardRef(
+  ({ currentUser, showQueue, queue, removeFromQueue }, ref) => {
+    if (!currentUser) return null;
+    const dropdownName = showQueue
+      ? "queue-dropdown-show flex"
+      : "queue-dropdown-hide";
+    const queueItems = queue.map((queueItem) => (
+      <QueueItem
+        queueItem={queueItem}
+        removeFromQueue={removeFromQueue}
+        currentUser={currentUser}
+      />
+    ));
+    return (
+      <div className={dropdownName} ref={ref}>
+        <h2>{`${currentUser.username}'s Queue`}</h2>
+        <section className="queue-list-container">
+          <ul className="queue-list flex">
+            {queueItems}
+            {/* <QueueItem providers="Netflix Hulu HBO AmazonPrimeVideo" />
           <QueueItem providers="Netflix Hulu" />
           <QueueItem providers="Netflix AmazonPrimeVideo" />
           <QueueItem providers="Netflix Hulu HBO" /> */}
-        </ul>
-      </section>
-      <button className="clear-queue-btn">CLEAR QUEUE</button>
-      <QueueCalculatorContainer providers={["Netflix", "Hulu"]} />
-    </div>
-  );
-});
+          </ul>
+        </section>
+        <button className="clear-queue-btn">CLEAR QUEUE</button>
+        <QueueCalculatorContainer providers={["Netflix", "Hulu"]} />
+      </div>
+    );
+  }
+);
 
 export default QueueDropdown;

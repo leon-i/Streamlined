@@ -1,45 +1,47 @@
 .backdrop {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 75%;
-    width: 75%;
-    opacity: 0.1;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 75%;
+  width: 75%;
+  opacity: 0.1;
 }
 
 .backdrop:hover {
-    opacity: 0.3;
+  opacity: 0.3;
 }
 
 .information {
-    pointer-events: none;
-    color: white;
-    display: inline-block;
-    flex-direction: row;
-    display: flex;
-    margin: -500px 200px 200px 200px;
-    position: absolute;
+  pointer-events: none;
+  color: white;
+  display: inline-block;
+  flex-direction: row;
+  display: flex;
+  /* margin: -500px 200px 200px 200px; */
+  position: relative;
+  top: -800px;
+  left: 300px;
 }
 
 .poster {
-    height: 28%;
-    width: 28%;
-    border-radius: 1px;
-    border: 1px solid white;
-    display: inline-block;
+  height: 28%;
+  width: 28%;
+  border-radius: 1px;
+  border: 1px solid white;
+  display: inline-block;
 }
 
 .text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    margin: 0px 15px 15px 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  width: 765px;
+  margin: 0px 15px 15px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .name {
-    font-size: 25px;
-    font-weight: bold;
+  font-size: 25px;
+  font-weight: bold;
 }
-
