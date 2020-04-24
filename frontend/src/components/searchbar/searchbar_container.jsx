@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { requestSearchResult, clearSearchResult, clearSearchErrors } from '../../actions/search_actions';
 import SearchBar from './searchbar';
 
-const mapStateToProps = ({ searchResults, errors: { search } }) => ({
+const mapStateToProps = ({ entities: { searchResults}, errors: { search } }) => ({
     searchResults,
     search
 })

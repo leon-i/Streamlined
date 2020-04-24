@@ -8,7 +8,6 @@ import uiReducer from './ui_reducer'
 export default combineReducers({
   entities: entitiesReducer,
   session: sessionReducer,
-  searchResults: searchResultsReducer,
   errors: errorsReducer,
   ui: uiReducer,
 });

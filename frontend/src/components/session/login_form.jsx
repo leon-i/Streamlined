@@ -62,7 +62,7 @@ class LoginForm extends React.Component {
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit}>
           <div className="login-form">
-            <p className="user-auth-logo">StreamLined.</p>
+            <p className="user-auth-logo">Streamlined.</p>
             <br/>
               <input type="text"
                 value={this.state.email}
@@ -84,9 +84,11 @@ class LoginForm extends React.Component {
               }} className='demo-user'>
                 Demo User
               </button>
-            {this.renderErrors()}
           </div>
         </form>
+        <div className='errors-section'>
+          {this.renderErrors()}
+        </div>
       </div>
     );
   }
