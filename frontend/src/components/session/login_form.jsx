@@ -59,9 +59,11 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-form-container">
         <form onSubmit={this.handleSubmit}>
-          <div>
+          <div className="login-form">
+            <p className="user-auth-logo">StreamLined.</p>
+            <br/>
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
@@ -74,7 +76,7 @@ class LoginForm extends React.Component {
                 placeholder="Password"
               />
             <br/>
-            <input type="submit" value="Submit" />
+            <input className="auth-submit" type="submit" value="Log In" />
             <br/>
               <button onClick={(e) => {
                 e.preventDefault();
