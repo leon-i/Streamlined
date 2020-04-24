@@ -8,12 +8,17 @@ const receiveQueue = (queue) => ({
   queue,
 });
 
-
 export const addToQueue = (data) => (dispatch) =>
   QueueApiUtil.addToQueue(data).then((queue) => dispatch(receiveQueue(queue)));
 
-
 export const requestQueue = (userId) => (dispatch) =>
-         QueueApiUtil.fetchQueue(userId).then((queue) =>
-           dispatch(receiveQueue(queue))
-         );
+  QueueApiUtil.fetchQueue(userId).then((queue) =>
+    dispatch(receiveQueue(queue))
+  );
+
+export const removeFromQueue = (data) => (dispatch) =>
+  QueueApiUtil.deleteFromQueue(data).then((queue) => {
+    debugger;
+    console.log("deleted!");
+    return dispatch(receiveQueue(queue));
+  });

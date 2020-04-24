@@ -29,6 +29,30 @@ router.post("/", (req, res) => {
   });
 });
 
-router.get("/", (req, res) => {});
+router.delete("/", (req, res) => {
+  const { title, user } = req.query;
+
+  Queue.findOneAndDelete({ title: title, user: user }).then((res) => {
+    debugger;
+
+    if (res) {
+      //success, otherwise null
+      User.findById(user).then((user) => {
+        for (let i = 0; i < user.queue.length; i++) {
+          const element = user.queue[i];
+
+          if (element.title === title) {
+            debugger;
+            user.queue = user.queue.slice(0, i).concat(user.queue.slice(i + 1));
+            debugger;
+            user.save().then((user) => {
+              return res.json(user.queue);
+            });
+          }
+        }
+      });
+    }
+  });
+});
 
 module.exports = router;

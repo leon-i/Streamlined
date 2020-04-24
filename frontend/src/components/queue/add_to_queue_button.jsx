@@ -4,6 +4,7 @@ class AddToQueueButton extends React.Component {
   constructor(props) {
     super(props);
     this.addToQueue = this.addToQueue.bind(this);
+    this.removeFromQueue = this.removeFromQueue.bind(this);
   }
 
   addToQueue() {
@@ -19,11 +20,31 @@ class AddToQueueButton extends React.Component {
     });
   }
 
+  removeFromQueue() {
+    this.props.removeFromQueue({
+      title: this.props.show.name,
+      user: this.props.currentUser.id,
+    });
+  }
+
   render() {
     if (!this.props.currentUser) return null;
+
+    const { queue } = this.props;
+    let added = false;
+
+    queue.forEach((queueItem) => {
+      if (queueItem.title === this.props.show.name) {
+        added = true;
+      }
+    });
+
+    const btnTxt = added ? "Remove from queue" : "Add to queue";
+    const action = added ? this.removeFromQueue : this.addToQueue;
     return (
       <div>
-        <button onClick={this.addToQueue}>Add to queue</button>
+        <button onClick={this.addToQueue}>{btnTxt}</button>
+        <button onClick={action}>remove</button>
       </div>
     );
   }
