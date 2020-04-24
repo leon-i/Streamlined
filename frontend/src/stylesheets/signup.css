@@ -22,6 +22,9 @@
 }
 
 .signup-form input[type=text], [type=password]{
+    padding: 8px 0 8px 8px;
+    border: none;
+    outline: none;
     margin: 10px;
     width: 90%;
     font-size: 15px;
@@ -29,6 +32,9 @@
 }
 
 .login-form input[type=text], [type=password]{
+    padding: 8px 0 8px 8px;
+    border: none;
+    outline: none;
     margin: 10px;
     width: 90%;
     font-size: 15px;
@@ -39,6 +45,7 @@
     margin: 10px;
     font-size: 15px;
     font-weight: bold;
+    text-align: center;
     height: 35px;
     background: #98abf3;
     border-radius: 4px;
@@ -63,4 +70,19 @@
 
 .auth-submit:hover, .demo-user:hover{
     background: #7289da;
+}
+
+.errors-section {
+    position: absolute;
+    width: 270px;
+    z-index: 40;
+    top: 175px;
+    right: 300px;
+}
+
+.errors-section li {
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background: red;
 }
