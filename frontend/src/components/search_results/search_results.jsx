@@ -20,9 +20,9 @@ const SearchResults = ({ media, imageUrl, providers }) => {
     ) : (
         <>
         </>
-    )
+    );
 
-    const descriptionText = media.Descriptions ? media.Descriptions[0].Description : 'No description available.';
+    const descriptionText = media.Descriptions && media.Descriptions.length ? media.Descriptions[0].Description : 'No description available.';
 
     // const testRender = (
     //     <div className='result flex'>
