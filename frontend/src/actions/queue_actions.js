@@ -18,7 +18,5 @@ export const requestQueue = (userId) => (dispatch) =>
 
 export const removeFromQueue = (data) => (dispatch) =>
   QueueApiUtil.deleteFromQueue(data).then((queue) => {
-    debugger;
-    console.log("deleted!");
     return dispatch(receiveQueue(queue));
   });

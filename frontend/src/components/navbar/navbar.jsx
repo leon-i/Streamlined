@@ -23,8 +23,9 @@ class NavBar extends React.Component {
 
   componentDidMount() {
     const { currentUser, requestQueue } = this.props;
-    document.addEventListener("click", this.handleOutsideDropdownClick);
+    // debugger
     requestQueue(currentUser.id);
+    document.addEventListener("click", this.handleOutsideDropdownClick);
   }
 
   componentWillUnmount() {
@@ -75,6 +76,7 @@ class NavBar extends React.Component {
   }
 
   render() {
+    // debugger;
     return (
       <nav className="navbar flex">
         <Link to={"/"}>
@@ -87,6 +89,7 @@ class NavBar extends React.Component {
         </Link>
         <div className="navbar-right">
           <QueueDropdown
+            queue={this.props.queue}
             currentUser={this.props.currentUser}
             showQueue={this.state.showDropdown}
             ref={this.dropdownRef}

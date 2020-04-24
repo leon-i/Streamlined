@@ -17,9 +17,7 @@ export const fetchQueue = (userId) => {
   });
 };
 
-export const deleteFromQueue = (data) => {
-  debugger;
-  return axios.delete("/api/queue", {
+export const deleteFromQueue = (data) =>
+  axios.delete("/api/queue", {
     params: data,
   });
-};

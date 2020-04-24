@@ -15,9 +15,10 @@ class QueueCalculator extends React.Component {
     // this.calculateTotalCost = this.calculateTotalCost.bind(this);
   }
 
-  componentDidMount() {
-    this.props.requestQueue(this.props.currentUser.id);
-  }
+  // componentDidMount() {
+  //   debugger;
+  //   this.props.requestQueue(this.props.currentUser.id);
+  // }
 
   startingCost(providers) {
     let cost = 0;

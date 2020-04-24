@@ -1,143 +1,146 @@
 .queue-dropdown-show {
-    flex-direction: column;
-    position: fixed;
-    right: 90px;
-    top: 8px;
-    z-index: 40;
-    width: 385px;
-    padding: 16px 0;
-    border-radius: 4px;
-    border: 1px solid #2c2f33;
-    background: #4d4d4d;
-    color: #fff;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.34), 0 1px 5px 0 rgba(0,0,0,0.32), 0 3px 1px -2px rgba(0,0,0,0.4);
+  flex-direction: column;
+  position: fixed;
+  right: 90px;
+  top: 8px;
+  z-index: 40;
+  width: 385px;
+  padding: 16px 0;
+  border-radius: 4px;
+  border: 1px solid #2c2f33;
+  background: #4d4d4d;
+  color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.34), 0 1px 5px 0 rgba(0, 0, 0, 0.32),
+    0 3px 1px -2px rgba(0, 0, 0, 0.4);
 }
 
 .queue-dropdown-show h2 {
-    font-size: 16px;
-    font-weight: bold;
-    align-self: center;
-    margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  align-self: center;
+  margin-bottom: 16px;
 }
 
 .queue-list-container {
-    min-height: 100px;
-    max-height: 200px;
-    overflow: auto;
-    margin: 0 16px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    background: #5e5e5e;
+  min-height: 100px;
+  max-height: 200px;
+  overflow: auto;
+  margin: 0 16px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background: #5e5e5e;
 }
 
 .queue-list-container::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 .queue-list-container::-webkit-scrollbar-thumb {
-    background: #fff;
-    border-radius: 10px;
+  background: #fff;
+  border-radius: 10px;
 }
 
 .queue-list-container::-webkit-scrollbar {
-    width: 5px;
-    height: 4px;
+  width: 5px;
+  height: 4px;
 }
 
 .queue-list {
-    flex-direction: column;
-    box-sizing: border-box;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .clear-queue-btn {
-    align-self: center;
-    margin: 20px 0;
+  align-self: center;
+  margin: 20px 0;
 }
 
 .queue-dropdown-hide {
-    display: none;
+  display: none;
 }
 
 .queue-item {
-    padding: 10px 16px 10px 10px;
+  padding: 10px 16px 10px 10px;
 }
 
 .queue-item:last-of-type {
-    /* padding-bottom: 10px; */
+  /* padding-bottom: 10px; */
 }
 
 .queue-item:hover {
-    background: #404040;
+  background: #404040;
 }
 
 .queue-item svg {
-    font-size: 20px;
-    margin-right: 10px;
-    cursor: pointer;
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .queue-item svg:hover {
-    color: #f00;
+  color: #f00;
 }
 
 .queue-item-img {
-    height: 60px;
-    width: 100px;
+  /* height: 60px;
+    width: 100px; */
+  height: 50px;
+  /* width: 66.7px; */
 }
 
 .queue-item h2 {
-    font-weight: bold;
-    margin-left: 10px;
+  font-weight: bold;
+  margin-left: 10px;
 }
 
 .queue-item-providers {
-    flex-direction: column;
-    flex-wrap: wrap;
-    max-height: 60px;
-    margin-left: 20px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 60px;
+  margin-left: 20px;
 }
 
 .provider-logo-small {
-    height: 20px;
-    width: 40px;
-    margin: 0 10px 10px 0;
+  height: 20px;
+  width: 40px;
+  margin: 0 10px 10px 0;
 }
 
 .calculator {
-    flex-direction: column;
-    align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .calculator h1 {
-    font-size: 18px;
-    margin-bottom: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .calculator-btn {
-    font-size: 16px;
-    font-weight: bold;
-    height: 36px;
-    width: 75px;
-    margin-right: 5px;
-    background: #fff;
-    color: #2c2f33;
-    border-radius: 2px;
-    border: none;
-    outline: none;
-    cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  height: 36px;
+  width: 75px;
+  margin-right: 5px;
+  background: #fff;
+  color: #2c2f33;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .total-cost {
-    flex-direction: row;
-    font-size: 16px;
-    margin-top: 20px;
+  flex-direction: row;
+  font-size: 16px;
+  margin-top: 20px;
 }
 
 .total-cost h4 {
-    font-weight: bold;
-    margin-right: 5px;
+  font-weight: bold;
+  margin-right: 5px;
 }
 
 .selected {
-    background: lightgray;
+  background: lightgray;
 }

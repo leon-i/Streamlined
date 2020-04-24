@@ -45,7 +45,9 @@ class PopularIndex extends React.Component {
             </div>
             <div className="pop-rating">{`${show.vote_average} / 10`}</div>
             <div className="pop-count">Ratings: {show.vote_count} </div>
-            <div className="pop-pop">{`Popularity: ${Math.floor(show.popularity)}`}</div>
+            <div className="pop-pop">{`Popularity: ${Math.floor(
+              show.popularity
+            )}`}</div>
           </div>
         </li>
       );

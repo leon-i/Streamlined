@@ -13,9 +13,6 @@ router.post("/", (req, res) => {
   //     return res.status(400).json(errors);
   //   }
 
-  //   debugger
-  // Queue.findOne({})
-
   const newQueueItem = new Queue(data);
   newQueueItem.save().then((queue) => {
     User.findById(queue.user).then((user) => {
@@ -39,7 +36,6 @@ router.delete("/", (req, res) => {
 
           if (element.title === title) {
             user.queue = user.queue.slice(0, i).concat(user.queue.slice(i + 1));
-
             user.save().then((user) => {
               return res.json(user.queue);
             });

@@ -28,7 +28,13 @@ class AddToQueueButton extends React.Component {
   }
 
   render() {
-    if (!this.props.currentUser) return null;
+    // debugger;
+    if (
+      !this.props.currentUser ||
+      Object.keys(this.props.currentUser).length === 0
+    ) {
+      return null;
+    }
 
     const { queue } = this.props;
     let added = false;
@@ -43,8 +49,7 @@ class AddToQueueButton extends React.Component {
     const action = added ? this.removeFromQueue : this.addToQueue;
     return (
       <div>
-        <button onClick={this.addToQueue}>{btnTxt}</button>
-        <button onClick={action}>remove</button>
+        <button onClick={action}>{btnTxt}</button>
       </div>
     );
   }
