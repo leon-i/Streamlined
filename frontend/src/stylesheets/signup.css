@@ -1,0 +1,66 @@
+.signup-form-container, .login-form-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.user-auth-logo {
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    /* margin: 110px 0 36px 0; */
+    color: #fff;
+}
+
+.signup-form, .login-form {
+    background: #404040;
+    padding: 16px;
+    border-radius: 5px;
+    border-width: medium;
+    border-style: solid;
+    border: #fff;
+}
+
+.signup-form input[type=text], [type=password]{
+    margin: 10px;
+    width: 90%;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+.login-form input[type=text], [type=password]{
+    margin: 10px;
+    width: 90%;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+.auth-submit {
+    margin: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    height: 35px;
+    background: #98abf3;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    min-width: 92%;
+}
+
+.demo-user {
+    margin: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    height: 35px;
+    min-width: 92%;
+    background: #98abf3;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.auth-submit:hover, .demo-user:hover{
+    background: #7289da;
+}
