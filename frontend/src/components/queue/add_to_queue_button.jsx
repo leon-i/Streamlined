@@ -9,13 +9,19 @@ class AddToQueueButton extends React.Component {
 
   addToQueue() {
     const { show } = this.props;
+    const provider = show.providers ? show.providers : show.networks[0].name;
+    const imageUrl = show.imageUrl
+      ? show.imageUrl
+      : `https://image.tmdb.org/t/p/w500${show.backdrop_path}`;
+    debugger;
     this.props.addToQueue({
       title: show.name,
       description: show.overview,
-      rating: show.vote_average,
-      genres: show.genres,
-      imageUrl: `https://image.tmdb.org/t/p/w500${show.poster_path}`,
-      provider: show.networks,
+      // rating: show.vote_average,
+      // genres: show.genres,
+      imageUrl: imageUrl,
+      // provider: show.networks,
+      provider: provider,
       user: this.props.currentUser.id,
     });
   }
@@ -49,7 +55,9 @@ class AddToQueueButton extends React.Component {
     const action = added ? this.removeFromQueue : this.addToQueue;
     return (
       <div>
-        <button onClick={action}>{btnTxt}</button>
+        <button className="queue-btn" onClick={action}>
+          {btnTxt}
+        </button>
       </div>
     );
   }

@@ -41,15 +41,26 @@ class NavBar extends React.Component {
   getLinks() {
     if (this.props.loggedIn) {
       return (
-        <div className="session-btns">
-          {/* <Link to={'/profile'}>Profile</Link> */}
-          <button className="open-queue-btn" onClick={this.handleDropdownClick}>
-            Queue
-          </button>
-          <button className="logout-btn" onClick={this.logoutUser}>
-            Logout
-          </button>
-        </div>
+        <>
+          <QueueDropdown
+            queue={this.props.queue}
+            currentUser={this.props.currentUser}
+            showQueue={this.state.showDropdown}
+            ref={this.dropdownRef}
+          />
+          <div className="session-btns">
+            {/* <Link to={'/profile'}>Profile</Link> */}
+            <button
+              className="open-queue-btn"
+              onClick={this.handleDropdownClick}
+            >
+              Queue
+            </button>
+            <button className="logout-btn" onClick={this.logoutUser}>
+              Logout
+            </button>
+          </div>
+        </>
       );
     } else {
       return (
@@ -87,15 +98,7 @@ class NavBar extends React.Component {
             onClick={() => this.props.clearSearchResult()}
           />
         </Link>
-        <div className="navbar-right">
-          <QueueDropdown
-            queue={this.props.queue}
-            currentUser={this.props.currentUser}
-            showQueue={this.state.showDropdown}
-            ref={this.dropdownRef}
-          />
-          {this.getLinks()}
-        </div>
+        <div className="navbar-right">{this.getLinks()}</div>
       </nav>
     );
   }

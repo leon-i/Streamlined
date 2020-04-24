@@ -10,14 +10,14 @@ const QueueSchema = new Schema({
     type: String,
     required: true,
   },
-  rating: {
-    type: Number,
-    required: true,
-  },
-  genres: {
-    type: Array,
-    required: true,
-  },
+  // rating: {
+  //   type: Number,
+  //   required: true,
+  // },
+  // genres: {
+  //   type: Array,
+  //   required: true,
+  // },
   imageUrl: {
     type: String,
     required: true,
@@ -40,5 +40,5 @@ const QueueSchema = new Schema({
   },
 });
 
- QueueModel = mongoose.model("queue", QueueSchema);
- module.exports = QueueModel;
+QueueModel = mongoose.model("queue", QueueSchema);
+module.exports = QueueModel;
