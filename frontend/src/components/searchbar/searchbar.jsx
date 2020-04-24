@@ -23,7 +23,13 @@ class SearchBar extends React.Component {
         this.handleEnter = this.handleEnter.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleAddToQueue = this.handleAddToQueue.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        const { user, requestQueue } = this.props;
+        if (user) requestQueue(user.id);
     }
 
     toggleDropdown(e) {
@@ -53,6 +59,14 @@ class SearchBar extends React.Component {
         }
     }
 
+    handleAddToQueue(e) {
+        e.preventDefault();
+        const { searchResults, user, addToQueue } = this.props;
+        const queueItem = Object.values(searchResults)[0];
+        const payload = Object.assign({}, queueItem, { userId: user.id });
+        addToQueue(payload);
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.clearSearchErrors();
@@ -62,7 +76,8 @@ class SearchBar extends React.Component {
             loading: true,
             done: false,
             errors: ''
-        })
+        });
+        debugger
 
         this.props.requestSearchResult({ mediaType, title }).then(res => {
             return this.setState({
@@ -89,7 +104,7 @@ class SearchBar extends React.Component {
             : "Search for a movie to see where it's streamed...";
 
         const resultsRender = done && !search.length ? (
-            <SearchResults media={media} imageUrl={imageUrl} providers={providers} />
+            <SearchResults media={media} imageUrl={imageUrl} providers={providers} handleAddToQueue={this.handleAddToQueue} />
         ) : (
             <>
             </>

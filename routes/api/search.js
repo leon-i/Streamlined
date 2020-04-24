@@ -15,14 +15,16 @@ router.get('/', (req, res) => {
     }
 
     requestMedia(mediaType, title, keyIdx).then(response => {
+        debugger
         if (!response.data.ProgramMatches.length) {
+            debugger
             return res.status(404).json({ errors: 'Content not found' });
         } else {
             const matches = response.data.ProgramMatches;
             let media;
             if (matches.length > 1) {
                 matches.forEach(match => {
-                    if (!media || match.Year > media.Year) {
+                    if (!media || (match.Year > media.Year)) {
                         media = match;
                     }
                 })

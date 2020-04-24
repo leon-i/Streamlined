@@ -1,8 +1,7 @@
 import React from 'react';
 import '../../stylesheets/search_results.css';
-// import { Link } from 'react-redux';
 
-const SearchResults = ({ media, imageUrl, providers }) => {
+const SearchResults = ({ media, imageUrl, providers, handleAddToQueue }) => {
     if (!media || !imageUrl || !providers) return null;
     const providersRender = providers.map((provider, idx) => (
         <li key={idx}>
@@ -101,7 +100,7 @@ const SearchResults = ({ media, imageUrl, providers }) => {
                             </div>
                             { runtimeRender }
                         </div>
-                        <button className='queue-btn'>ADD TO QUEUE</button>
+                        <button className='queue-btn' onClick={handleAddToQueue}>ADD TO QUEUE</button>
                     </section>
                 </div>
                 <div className='providers-container'>

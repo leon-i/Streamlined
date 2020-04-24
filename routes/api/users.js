@@ -35,7 +35,7 @@ router.post('/register', (req, res) => {
                         newUser.password = hash;
                         newUser.save()
                             .then(user => {
-                                const payload = { id: user.id, email: user.email, username: user.username };
+                                const payload = { id: user.id, email: user.email, username: user.username, queue: user.queue };
 
                                 jwt.sign(
                                     payload,
@@ -80,7 +80,8 @@ router.post('/login', (req, res) => {
                         const payload = {
                             id: user.id,
                             username: user.username,
-                            email: user.email
+                            email: user.email,
+                            queue: user.queue
                         }
                         jwt.sign(
                             payload,
@@ -100,6 +101,36 @@ router.post('/login', (req, res) => {
                     }
                 })
         })
+})
+
+router.get('/queue', (req, res) => {
+    const userId= req.query[0];
+    User.findById(userId).then(user => {
+        const payload = {};
+        user.queue.forEach(queueItem => {
+            debugger
+            payload[queueItem.mediaId] = queueItem
+        });
+        return res.json(payload);
+    })
+})
+
+router.post('/queue', (req, res) => {
+    const { userId, media, imageUrl, providers } = req.body;
+
+    User.findById(userId).then(user => {
+        const queueItem = {
+            mediaId: media.Id,
+            title: media.Title,
+            imageUrl: imageUrl,
+            providers: providers
+        }
+        debugger
+        
+        user.queue.push(queueItem);
+        user.save()
+        return res.json(queueItem);
+    })
 })
 
 module.exports = router;

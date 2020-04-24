@@ -14,6 +14,12 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    queue: [{
+        mediaId: String,
+        title: String,
+        imageURL: String,
+        providers: Array
+    }],
     date: {
         type: Date,
         default: Date.now
