@@ -31,7 +31,8 @@ export const logoutUser = () => ({
 // Upon signup, dispatch the approporiate action depending on which type of response we receieve from the backend
 export const signup = user => dispatch => {
     return APIUtil.signup(user).then((res) => {
-        const token = res.data.token
+        const token = res.data.token;
+        localStorage.setItem('jwtToken', token);
         APIUtil.setAuthToken(token);
         const decoded = jwt_decode(token);
         dispatch(receiveCurrentUser(decoded));
