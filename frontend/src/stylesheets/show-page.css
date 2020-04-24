@@ -4,11 +4,11 @@
     margin-right: auto;
     height: 75%;
     width: 75%;
-    opacity: 10%;
+    opacity: 0.1;
 }
 
 .backdrop:hover {
-    opacity: 35%;
+    opacity: 0.35;
 }
 
 .information {
