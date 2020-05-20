@@ -1,4 +1,5 @@
 import React from "react";
+import "../../stylesheets/show-page.css"
 
 class ShowDetail extends React.Component {
   componentDidMount() {
@@ -21,17 +22,26 @@ class ShowDetail extends React.Component {
     } = show;
 
     return (
-      <div>
-        <h1>{name}</h1>
-        <div></div>
-        <div>{networks[0].name}</div>
+      <div className="show-page">
 
-        <div>Rating: {vote_average}</div>
-        <div>Votings: {vote_count}</div>
-        <div>{`${seasons.length} Seasons`}</div>
-        <div>{overview}</div>
-        <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} />
-        <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
+        <img className="backdrop" src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} />
+
+        <div className="information">
+          <img className="poster" src={`https://image.tmdb.org/t/p/w500${poster_path}`} />
+
+          <div className="text">
+            <h1 className="name">{name}</h1>
+
+            <div>{overview}</div>
+            <div>{`${seasons.length} Seasons`}</div>
+            <div>{networks[0].name}</div>
+
+            <div>Rating: {vote_average}</div>
+            <div>Votings: {vote_count}</div>
+          </div>
+
+        </div>
+          
       </div>
     );
   }
