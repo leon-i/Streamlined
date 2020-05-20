@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
             let media;
             if (matches.length > 1) {
                 matches.forEach(match => {
-                    if (!media || (match.Year > media.Year)) {
+                    if (!media || ((match.Year > media.Year) && match.OriginalLanguage === 'English')) {
                         media = match;
                     }
                 })
