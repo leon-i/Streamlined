@@ -71,7 +71,11 @@ componentWillUnmount() {
               onClick={() => this.props.clearSearchResult()} />
           </Link>
           <div className='navbar-right'>
-            <QueueDropdown currentUser={this.props.currentUser} showQueue={this.state.showDropdown} ref={this.dropdownRef} />
+            <QueueDropdown currentUser={this.props.currentUser}
+            queue={this.props.queue} 
+            showQueue={this.state.showDropdown} 
+            ref={this.dropdownRef}
+            deleteFromQueue={this.props.deleteFromQueue} />
             { this.getLinks() }
           </div>
         </nav>

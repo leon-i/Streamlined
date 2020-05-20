@@ -9,3 +9,9 @@ export const fetchQueue = userId => (
 export const addToQueue = data => (
     axios.post('/api/users/queue', data)
 );
+
+export const deleteFromQueue = data => (
+    axios.delete('api/users/queue', {
+        params: data
+    })
+)

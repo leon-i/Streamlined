@@ -1,17 +1,20 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import { clearSearchResult } from '../../actions/search_actions';
+import { deleteFromQueue } from '../../actions/queue_actions';
 
 import NavBar from './navbar';
 
-const mapStateToProps = state => ({
-  loggedIn: state.session.isAuthenticated,
-  currentUser: state.session.user
+const mapStateToProps = ({ session, entities: { queue }}) => ({
+  loggedIn: session.isAuthenticated,
+  currentUser: session.user,
+  queue
 });
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout()),
-  clearSearchResult: () => dispatch(clearSearchResult())
+  clearSearchResult: () => dispatch(clearSearchResult()),
+  deleteFromQueue: data => dispatch(deleteFromQueue(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

@@ -77,7 +77,6 @@ class SearchBar extends React.Component {
             done: false,
             errors: ''
         });
-        debugger
 
         this.props.requestSearchResult({ mediaType, title }).then(res => {
             return this.setState({

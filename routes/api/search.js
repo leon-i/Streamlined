@@ -6,6 +6,7 @@ const KEYS = keys.apiKeys;
 const movieDBKey = keys.movieDBKey;
 
 router.get('/', (req, res) => {
+    debugger
     const { mediaType, title } = req.query;
     const keyIdx = startingAPIkey();
     const searchResult = {
@@ -15,9 +16,7 @@ router.get('/', (req, res) => {
     }
 
     requestMedia(mediaType, title, keyIdx).then(response => {
-        debugger
         if (!response.data.ProgramMatches.length) {
-            debugger
             return res.status(404).json({ errors: 'Content not found' });
         } else {
             const matches = response.data.ProgramMatches;
@@ -32,6 +31,7 @@ router.get('/', (req, res) => {
                 media = response.data.ProgramMatches[0];
             }
             
+            debugger
             searchResult.media = media;
 
             if (mediaType === 'Movie') {
@@ -49,6 +49,7 @@ router.get('/', (req, res) => {
             
 
             requestProviders(media.Id, 'Netflix', (keyIdx + 1) % KEYS.length).then(netflixRes => {
+                debugger
                 if (netflixRes.data.Hits.length) {
                     searchResult.providers.push('Netflix');
                 }
@@ -90,7 +91,7 @@ const requestMedia = (mediaType, title, keyIdx) => {
             "Title": title,
             "ProgramType": mediaType
         }
-    })
+    }).catch(e => console.log(e));
 }
 
 const requestProviders = (mediaId, providerName, keyIdx) => {
@@ -105,19 +106,21 @@ const requestProviders = (mediaId, providerName, keyIdx) => {
             "Ids": mediaId,
             "Providers": providerName
         }
-    })
+    }).catch(e => {
+        console.log(e);
+    });
 }
 
 const requestTVPoster = (title) => {
     return axios.get(
       `https://api.themoviedb.org/3/search/tv?api_key=${movieDBKey}&query=${title}`
-    )
+    ).catch(e => console.log(e));
 }
 
 const requestMoviePoster = (title) => {
     return axios.get(
         `https://api.themoviedb.org/3/search/movie?api_key=${movieDBKey}&query=${title}`
-    )
+    ).catch(e => console.log(e));
 }
 
 const startingAPIkey = () => (

@@ -29,3 +29,6 @@ export const requestQueue = userId => dispatch =>
 
 export const addToQueue = data => dispatch =>
     QueueAPIUtil.addToQueue(data).then(queueItem => dispatch(receiveQueueItem(queueItem)));
+
+export const deleteFromQueue = data => dispatch =>
+    QueueAPIUtil.deleteFromQueue(data).then(queueItem => dispatch(removeFromQueue(queueItem)));

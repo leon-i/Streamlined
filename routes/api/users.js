@@ -108,12 +108,11 @@ router.get('/queue', (req, res) => {
     User.findById(userId).then(user => {
         const payload = {};
         user.queue.forEach(queueItem => {
-            debugger
             payload[queueItem.mediaId] = queueItem
         });
         return res.json(payload);
     })
-})
+});
 
 router.post('/queue', (req, res) => {
     const { userId, media, imageUrl, providers } = req.body;
@@ -122,14 +121,26 @@ router.post('/queue', (req, res) => {
         const queueItem = {
             mediaId: media.Id,
             title: media.Title,
-            imageUrl: imageUrl,
+            imageURL: imageUrl,
             providers: providers
         }
-        debugger
         
         user.queue.push(queueItem);
-        user.save()
+        user.save();
         return res.json(queueItem);
+    })
+});
+
+router.delete('/queue', (req, res) => {
+    const { userId, itemId } = req.query;
+    debugger
+
+    User.findById(userId).then(user => {
+        debugger
+        user.queue.pull(itemId);
+        user.save();
+        debugger
+        return res.json({ msg: 'success' });
     })
 })
 
