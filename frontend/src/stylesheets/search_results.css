@@ -24,12 +24,17 @@
 
 .result-left {
   flex-direction: column;
-  min-width: 360px;
+  width: 360px;
 }
 
 .result-left h1 {
+  display: inline-block;
   font-size: 20px;
   font-weight: bold;
+  width: 97%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   margin-bottom: 10px;
 }
 
@@ -50,12 +55,12 @@
 
 .result-right {
   flex-direction: row;
+  margin-left: 16px;
 }
 
 .right-inner {
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 5px;
 }
 
 .result-details {
@@ -108,7 +113,7 @@
 }
 
 .queue-btn {
-  margin-right: 10px;
+  margin: 0 16px 0 36px;
 }
 
 .providers-container {

@@ -9,9 +9,11 @@ const QueueItem = ({ currentUser, queueItem, deleteFromQueue }) => {
 
     return (
         <li className='queue-item flex'>
-            <FontAwesomeIcon icon={faTimes} onClick={() => deleteFromQueue({userId: currentUser.id, itemId: queueItem._id})} />
-            <img className='queue-item-img' src={queueItem.imageURL}></img>
-            <h2>{queueItem.title}</h2>
+            <div className='queue-item-info flex'>
+                <FontAwesomeIcon icon={faTimes} onClick={() => deleteFromQueue({userId: currentUser.id, itemId: queueItem._id, mediaId: queueItem.mediaId})} />
+                <img className='queue-item-img' src={queueItem.imageURL}></img>
+                <h4>{queueItem.title}</h4>
+            </div>
             <div className='queue-item-providers flex'>
                 { logoRenders }
             </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-// import axios from 'axios';
 import SearchResults from '../search_results/search_results';
 import MediaTypeButtons from './media_type_buttons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,13 +22,12 @@ class SearchBar extends React.Component {
         this.handleEnter = this.handleEnter.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleAddToQueue = this.handleAddToQueue.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
         const { user, requestQueue } = this.props;
-        if (user) requestQueue(user.id);
+        if (user.id) requestQueue(user.id);
     }
 
     toggleDropdown(e) {
@@ -57,14 +55,6 @@ class SearchBar extends React.Component {
         return (e) => {
             this.setState({ [field]: e.target.value })
         }
-    }
-
-    handleAddToQueue(e) {
-        e.preventDefault();
-        const { searchResults, user, addToQueue } = this.props;
-        const queueItem = Object.values(searchResults)[0];
-        const payload = Object.assign({}, queueItem, { userId: user.id });
-        addToQueue(payload);
     }
 
     handleSubmit(e) {
@@ -103,25 +93,26 @@ class SearchBar extends React.Component {
             : "Search for a movie to see where it's streamed...";
 
         const resultsRender = done && !search.length ? (
-            <SearchResults media={media} imageUrl={imageUrl} providers={providers} handleAddToQueue={this.handleAddToQueue} />
+            <SearchResults media={media} imageUrl={imageUrl} providers={providers} />
         ) : (
             <>
             </>
-        )
+        );
 
         const loadingRender = loading ? (
             <FontAwesomeIcon className='loading-icon' icon={faSpinner} spin />
         ) : (
             <>
             </>
-        )
+        );
 
         const errorsRender = search.length ? (
             <h2 className='error-message'>Content not found.</h2>
         ) : (
             <>
             </>
-        )
+        );
+
         return (
             <section className='search flex'>
                 <div className='outer-search-bar flex'>

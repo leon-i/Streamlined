@@ -75,7 +75,8 @@ componentWillUnmount() {
             queue={this.props.queue} 
             showQueue={this.state.showDropdown} 
             ref={this.dropdownRef}
-            deleteFromQueue={this.props.deleteFromQueue} />
+            deleteFromQueue={this.props.deleteFromQueue}
+            emptyQueue={this.props.emptyQueue} />
             { this.getLinks() }
           </div>
         </nav>

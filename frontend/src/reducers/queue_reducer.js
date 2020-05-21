@@ -9,7 +9,7 @@ export default (state={}, action) => {
             return Object.assign({}, state, { [action.queueItem.data.mediaId]: action.queueItem.data });
         case REMOVE_FROM_QUEUE:
             const newState = Object.assign({}, state);
-            delete newState[action.queueItem.data.mediaId];
+            delete newState[action.queueItemId.data.mediaId];
             return newState;
         case CLEAR_QUEUE:
             return {};

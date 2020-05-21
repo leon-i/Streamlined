@@ -108,7 +108,7 @@ router.get('/queue', (req, res) => {
     User.findById(userId).then(user => {
         const payload = {};
         user.queue.forEach(queueItem => {
-            payload[queueItem.mediaId] = queueItem
+            payload[queueItem.mediaId] = queueItem;
         });
         return res.json(payload);
     })
@@ -127,21 +127,28 @@ router.post('/queue', (req, res) => {
         
         user.queue.push(queueItem);
         user.save();
+        queueItem._id = user.queue[user.queue.length - 1].id;
         return res.json(queueItem);
     })
 });
 
 router.delete('/queue', (req, res) => {
-    const { userId, itemId } = req.query;
-    debugger
+    const { userId, itemId, mediaId } = req.query;
 
     User.findById(userId).then(user => {
-        debugger
         user.queue.pull(itemId);
         user.save();
-        debugger
-        return res.json({ msg: 'success' });
+        return res.json({ mediaId });
     })
-})
+});
+
+router.delete('/queue/clear', (req, res) => {
+    const userId = req.query[0];
+    User.findById(userId).then(user => {
+        user.set('queue', []);
+        user.save();
+        return res.json({ msg: 'success' });
+    });
+});
 
 module.exports = router;

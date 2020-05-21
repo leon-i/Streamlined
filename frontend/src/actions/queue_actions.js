@@ -20,7 +20,7 @@ const removeFromQueue = queueItemId => ({
     queueItemId
 });
 
-export const clearQueue = () => ({
+const clearQueue = () => ({
     type: CLEAR_QUEUE
 });
 
@@ -32,3 +32,6 @@ export const addToQueue = data => dispatch =>
 
 export const deleteFromQueue = data => dispatch =>
     QueueAPIUtil.deleteFromQueue(data).then(queueItem => dispatch(removeFromQueue(queueItem)));
+
+export const emptyQueue = userId => dispatch =>
+    QueueAPIUtil.emptyQueue(userId).then(() => dispatch(clearQueue()));

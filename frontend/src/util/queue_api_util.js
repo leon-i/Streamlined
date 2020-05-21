@@ -14,4 +14,10 @@ export const deleteFromQueue = data => (
     axios.delete('api/users/queue', {
         params: data
     })
-)
+);
+
+export const emptyQueue = userId => (
+    axios.delete('api/users/queue/clear', {
+        params: userId
+    })
+);

@@ -15,6 +15,19 @@ class QueueCalculator extends React.Component {
         // this.calculateTotalCost = this.calculateTotalCost.bind(this);
     }
 
+    componentDidUpdate(prevProps) {
+        const { providers } = this.props;
+        if (prevProps.providers.length !== providers.length) {
+            this.setState({
+                Netflix: providers.includes('Netflix'),
+                Hulu: providers.includes('Hulu'),
+                HBO: providers.includes('HBO'),
+                AmazonPrimeVideo: providers.includes('AmazonPrimeVideo'),
+                totalCost: this.startingCost(providers)
+            });
+        }
+    }
+
     startingCost(providers) {
         let cost = 0;
         if (providers.includes('Netflix')) cost += 13;

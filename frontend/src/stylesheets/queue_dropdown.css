@@ -21,7 +21,7 @@
 }
 
 .queue-list-container {
-    min-height: 100px;
+    min-height: 80px;
     max-height: 200px;
     overflow: auto;
     margin: 0 16px;
@@ -59,7 +59,13 @@
 }
 
 .queue-item {
+    flex-direction: row;
+    justify-content: space-between;
     padding: 10px 16px 10px 10px;
+}
+
+.queue-item-info {
+    flex-direction: row;
 }
 
 .queue-item:last-of-type {
@@ -85,16 +91,16 @@
     width: 100px;
 }
 
-.queue-item h2 {
+.queue-item h4 {
     font-weight: bold;
-    margin-left: 10px;
+    margin: 2px 0 0 10px;
 }
 
 .queue-item-providers {
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     max-height: 60px;
-    margin-left: 20px;
+    padding-left: 52px;
 }
 
 .provider-logo-small {
@@ -125,6 +131,22 @@
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+.calculator-btn:nth-of-type(1):hover {
+    color: #E50914;
+}
+
+.calculator-btn:nth-of-type(2):hover {
+    color: #3DBB3D;
+}
+
+.calculator-btn:nth-of-type(3):hover {
+    color: #4682B4;
+}
+
+.calculator-btn:nth-of-type(4):hover {
+    color: #e47911;
 }
 
 .total-cost {

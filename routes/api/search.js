@@ -6,7 +6,6 @@ const KEYS = keys.apiKeys;
 const movieDBKey = keys.movieDBKey;
 
 router.get('/', (req, res) => {
-    debugger
     const { mediaType, title } = req.query;
     const keyIdx = startingAPIkey();
     const searchResult = {
@@ -31,7 +30,6 @@ router.get('/', (req, res) => {
                 media = response.data.ProgramMatches[0];
             }
             
-            debugger
             searchResult.media = media;
 
             if (mediaType === 'Movie') {
@@ -49,7 +47,6 @@ router.get('/', (req, res) => {
             
 
             requestProviders(media.Id, 'Netflix', (keyIdx + 1) % KEYS.length).then(netflixRes => {
-                debugger
                 if (netflixRes.data.Hits.length) {
                     searchResult.providers.push('Netflix');
                 }
