@@ -12,7 +12,7 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
+    this.renderError = this.renderError.bind(this);
   }
 
   // Once the user has been authenticated, redirect to the Splash page
@@ -45,16 +45,26 @@ class LoginForm extends React.Component {
   }
 
   // Render the session errors if there are any
-  renderErrors() {
-    return(
-      <ul>
-        {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
-        ))}
-      </ul>
-    );
+  renderError(field) {
+    const currentProps = Object.assign({}, this.props);
+    const { errors } = currentProps;
+    if (errors[field]) {
+      if (field === 'password') {
+        const temp = errors.password.split(' ');
+        temp[0] = 'Password';
+        errors.password = temp.join(' ');
+      }
+
+      return (
+        <p className='error'>
+          {errors[field]}
+        </p>
+      )
+    } else {
+      return (
+        <p className='error-hidden'></p>
+      )
+    }
   }
 
   render() {
@@ -69,26 +79,24 @@ class LoginForm extends React.Component {
                 onChange={this.update('email')}
                 placeholder="Email"
               />
-            <br/>
+            { this.renderError('email') }
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 placeholder="Password"
               />
-            <br/>
-            <input className="auth-submit" type="submit" value="Log In" />
-            <br/>
-              <button onClick={(e) => {
-                e.preventDefault();
-                this.props.demo();
-              }} className='demo-user'>
-                Demo User
-              </button>
+            { this.renderError('password') }
+            <section className='session-form-btns flex'>
+              <input className="auth-submit" type="submit" value="Log In" />
+                <button onClick={(e) => {
+                  e.preventDefault();
+                  this.props.demo();
+                }} className='demo-user'>
+                  Demo User
+                </button>
+              </section>
           </div>
         </form>
-        <div className='errors-section'>
-          {this.renderErrors()}
-        </div>
       </div>
     );
   }

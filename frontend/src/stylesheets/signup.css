@@ -8,7 +8,8 @@
     font-size: 40px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    /* margin: 110px 0 36px 0; */
+    text-align: center;
+    margin-bottom: 28px;
     color: #fff;
 }
 
@@ -19,30 +20,38 @@
     border-width: medium;
     border-style: solid;
     border: #fff;
+    width: 320px;
 }
 
-.signup-form input[type=text], [type=password]{
+.signup-form input[type=text], [type=password] {
     padding: 8px 0 8px 8px;
     border: none;
     outline: none;
-    margin: 10px;
+    margin: 0 10px;
     width: 90%;
     font-size: 15px;
     border-radius: 2px;
 }
 
-.login-form input[type=text], [type=password]{
+.login-form input[type=text], [type=password] {
     padding: 8px 0 8px 8px;
     border: none;
     outline: none;
-    margin: 10px;
+    margin: 0 10px;
     width: 90%;
     font-size: 15px;
     border-radius: 2px;
+}
+
+.session-form-btns {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-top: 28px;
+    width: 92.5%;
 }
 
 .auth-submit {
-    margin: 10px;
     font-size: 15px;
     font-weight: bold;
     text-align: center;
@@ -52,15 +61,14 @@
     border: none;
     outline: none;
     cursor: pointer;
-    min-width: 92%;
+    width: 40%;
 }
 
 .demo-user {
-    margin: 10px;
     font-size: 15px;
     font-weight: bold;
     height: 35px;
-    min-width: 92%;
+    width: 40%;
     background: #98abf3;
     border-radius: 4px;
     border: none;
@@ -72,17 +80,20 @@
     background: #7289da;
 }
 
-.errors-section {
-    position: absolute;
-    width: 270px;
-    z-index: 40;
-    top: 175px;
-    right: 300px;
+.error, .error-hidden {
+    font-size: 12.5px;
+    padding: 4px;
+    margin: 6px 0 6px 10px;
+    border-radius: 4px;
 }
 
-.errors-section li {
-    padding: 8px 16px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    background: red;
+.error {
+    display: inline-block;
+    background: #d93025;
+    color: white;
+    font-weight: bold;
+}
+
+.error-hidden {
+    opacity: 0;
 }
