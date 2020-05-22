@@ -15,6 +15,10 @@ class LoginForm extends React.Component {
     this.renderError = this.renderError.bind(this);
   }
 
+  componentDidMount() {
+    this.props.clearSessionErrors();
+  }
+
   // Once the user has been authenticated, redirect to the Splash page
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {

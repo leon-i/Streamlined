@@ -1,7 +1,7 @@
 .queue-dropdown-show {
     flex-direction: column;
     position: fixed;
-    right: 90px;
+    right: 110px;
     top: 8px;
     z-index: 40;
     width: 400px;
