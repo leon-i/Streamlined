@@ -43,6 +43,12 @@
     font-weight: bold;
 }
 
+.show-loading {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+}
+
 .show-queue-btn-container {
     text-align: center;
     margin-top: 16px;

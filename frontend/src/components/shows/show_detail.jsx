@@ -18,7 +18,7 @@ class ShowDetail extends React.Component {
 
     if (!show) return null;
     if (!searchResult) return (
-      <FontAwesomeIcon className='loading-icon' icon={faSpinner} spin />
+      <FontAwesomeIcon className='loading-icon show-loading' icon={faSpinner} spin />
     );
 
     const {
