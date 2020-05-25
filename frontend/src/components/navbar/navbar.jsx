@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faGithub } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import QueueDropdown from '../queue_dropdown/queue_dropdown';
 import '../../stylesheets/navbar.css';
 
@@ -37,7 +37,6 @@ componentWillUnmount() {
       if (this.props.loggedIn) {
         return (
             <div className='session-btns'>
-                {/* <Link to={'/profile'}>Profile</Link> */}
                 <button className='open-queue-btn' onClick={this.handleDropdownClick}>Queue</button>
                 <button className='logout-btn' onClick={this.logoutUser}>Logout</button>
             </div>
@@ -65,11 +64,17 @@ componentWillUnmount() {
   render() {
       return (
         <nav className='navbar flex'>
-          <Link to={'/'}>
-            <img className='logo' src={process.env.PUBLIC_URL + '/Streamlined_Logo.svg'} 
-              alt='stream-logo'
-              onClick={() => this.props.clearSearchResult()} />
-          </Link>
+          <div className='navbar-left'>
+            <Link to={'/'}>
+              <img className='logo' src={process.env.PUBLIC_URL + '/Streamlined_Logo.svg'} 
+                alt='stream-logo'
+                onClick={() => this.props.clearSearchResult()} />
+            </Link>
+            <a href="https://github.com/leon-i/Streamlined" target="_blank">
+                <FontAwesomeIcon icon={faGithub} className='github-icon' />
+            </a>
+          </div>
+
           <div className='navbar-right'>
             <QueueDropdown currentUser={this.props.currentUser}
             queue={this.props.queue} 

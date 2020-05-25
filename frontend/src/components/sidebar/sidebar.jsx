@@ -14,11 +14,6 @@ const Sidebar = ({sidebar, openDeveloperLinks, closeDeveloperLinks}) => {
     return (
         <div className='sidebar'>
             <ul className='about-links'>
-                    <li>
-                        <a href="https://github.com/leon-i/Streamlined" target="_blank">
-                            <FontAwesomeIcon icon={faGithub} className='icon-big' />
-                        </a>
-                    </li>
                 <li className={devTabClass} onClick={action}>
                     <p>Developers</p>
                     <FontAwesomeIcon icon={icon} className='caret-icon' />
