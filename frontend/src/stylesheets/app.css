@@ -65,3 +65,99 @@ body {
 .search-bar svg:hover {
     color: #2e2e2e;
 }
+
+@media (max-width: 620px) {
+    .about-links {
+        display: none;
+    }
+    
+    .app-name {
+        font-size: 3em;
+        margin: 110px auto 36px auto;
+    }
+
+    .outer-search-bar {
+        margin: 0 auto;
+    }
+
+    .search {
+        width: 100%;
+    }
+    
+    .search-bar input {
+        width: 220px;
+        font-size: 16px;
+    }
+
+    .result {
+        height: 100%;
+        width: 300px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .result-left {
+        width: inherit;
+    }
+
+    .result-left a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .result-left img {
+        height: 180px;
+        width: 300px;
+    }
+
+    .result-right {
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .result-description h2 {
+        text-align: center;
+        margin: 8px 0;
+    }
+
+    .result-description {
+        margin: 0 auto;
+    }
+
+    .result-description p {
+        height: 80px;
+        margin-bottom: 8px;
+    }
+
+    .result-details {
+        align-items: center;
+        margin: 8px 0;
+    }
+
+    .queue-btn {
+        margin: 0;
+    }
+
+    .providers-container {
+        padding: 0;
+        border: none;
+        border-radius: 0;
+    }
+
+    .provider-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .session-btns {
+        margin: 16px 16px 0 0;
+    }
+
+    .queue-dropdown-show {
+        top: 60px;
+        left: 16px;
+        width: 340px;
+    }
+}

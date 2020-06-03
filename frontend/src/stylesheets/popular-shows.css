@@ -171,5 +171,12 @@
     grid-row: unset !important;
     grid-column: unset !important;
     flex-direction: row !important;
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .populars {
+    display: none;
   }
 }
