@@ -134,6 +134,10 @@ body {
         margin: 8px 0;
     }
 
+    .runtime {
+        display: none;
+    }
+
     .queue-btn {
         margin: 0;
     }
